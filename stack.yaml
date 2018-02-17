@@ -1,0 +1,7 @@
+flags: {}
+extra-package-dbs: []
+packages:
+- asciimath/
+- '.'
+extra-deps: []
+resolver: lts-10.5

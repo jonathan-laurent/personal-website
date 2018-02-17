@@ -1,0 +1,90 @@
+  @font-face {
+    font-family: 'Computer Modern Serif';
+    src: url("../fonts/cm/cmunrm.otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Computer Modern Serif';
+    src: url("../fonts/cm/cmunbx.otf");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Computer Modern Serif';
+    src: url("../fonts/cm/cmunti.otf");
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Computer Modern Serif';
+    src: url("../fonts/cm/cmunbi.otf");
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Computer Modern Sans';
+    src: url("../fonts/cm/cmunss.otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Computer Modern Sans';
+    src: url("../fonts/cm/cmunsx.otf");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Computer Modern Sans';
+    src: url("../fonts/cm/cmunsi.otf");
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Computer Modern Sans';
+    src: url("../fonts/cm/cmunso.otf");
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Computer Modern Typewriter';
+    src: url("../fonts/cm/cmuntt.otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Computer Modern Typewriter';
+    src: url("../fonts/cm/cmuntb.otf");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Computer Modern Typewriter';
+    src: url("../fonts/cm/cmunit.otf");
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Computer Modern Typewriter';
+    src: url("../fonts/cm/cmuntx.otf");
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'CMU Typewriter Text';
+    src: url("../fonts/cm/cmuntt.otf");
+    font-weight: normal;
+    font-style: normal;
+  }

@@ -1,0 +1,12 @@
+*.cabal
+*.hi
+*.o
+
+.stack-work
+.sass-cache
+.vscode
+.DS_Store
+
+generated
+
+provider/drafts/*.md

@@ -1,0 +1,30 @@
+name: site
+version: 0.1.0.0
+synopsis: Personal website of Jonathan Laurent
+license: GPL-3
+author: Jonathan Laurent
+maintainer: jonathan-laurent@live.fr
+build-type: Simple
+
+executable:
+  source-dirs: src
+  main: Main.hs
+  ghc-options: -fno-warn-name-shadowing
+
+dependencies:
+  - base >=4.8
+  - mtl
+  - containers
+  - transformers
+  - data-default
+  - filepath
+  - directory
+  - process
+  - time
+  - binary
+  - hakyll >= 4.10
+  - pandoc
+  - pandoc-types
+  - blaze-html
+  - asciimath
+  - texmath
