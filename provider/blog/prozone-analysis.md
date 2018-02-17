@@ -7,18 +7,20 @@ date: 2017-02-08
 
 ## Problem
 
-Let's consider the following Kappa model:
+Consider the following Kappa model:
 ```kappa
-'A.B' A(b), B(a) <-> A(b!1), B(a!1) @ 'k+', 'k-'
-'B.C' B(c), C(b) <-> B(c!1), C(b!1) @ 'k+', 'k-'
+'A.B' A(b[.]), B(a[.]) <-> A(b[1]), B(a[1]) @ 'k+', 'k-'
+'B.C' B(c[.]), C(b[.]) <-> B(c[1]), C(b[1]) @ 'k+', 'k-'
 ```
 
-We want to compute the concentratin of $ABC$ complex at equilibrium. 
+We want to compute the concentration of $ABC$ complex at equilibrium as a function
+of the number of agents of each type in the mixture.
 
 ## Solution
 
+
 Let's suppose
-that the initial quantities of $A$ and $C$ are equal. By symmetry, we have:
+that the quantities of $A$ and $C$ are equal. By symmetry, we have:
 $$ [A] = [C]     [AB] = [BC] $$
 Therefore, the variables describing the state of the system are the following:
 $$ [A]     [B]     [AB]     [ABC]$$
@@ -36,7 +38,10 @@ $$k^-([AB] + [ABC])  =  k^+[A]*([B] + [AB])$$
 $$k^-[AB]  =  k^+[A][B]$$
 $$k^+[A][B] + k^-[ABC]  =  k^+[A][AB] + k^-[AB]$$
 $$k^+[A][AB] = k^-[ABC]$$
-The third equation is redundant, as it can be derived from the second one and the fourth one.
+
+### Expressing $[A]$ as the solution of a quadratic equation
+
+The third equation above is redundant, as it can be derived from the second one and the fourth one.
 Let's write $K = k^+//k^-$. Then, we have $$ [ABC] = K[A][AB]     [AB] = K[A][B] $$
 Remind that we want to express $[ABC]$ as a function of $a$ and $b$ where:
 ```align
@@ -52,19 +57,22 @@ $$ a - [A]  =  K[A](b - a + [A])$$
 which we can rewrite
 $$ K[A]^2 + (1 + K(b-a))[A] - a = 0$$
 
-Besides, from the definition of $a$, we have $[AB] = a - [A] - [ABC]$ and so
+### Expressing $[ABC]$ as a function of $[A]$
+
+
+From the definition of $a$, we have $[AB] = a - [A] - [ABC]$ and so
 $$ [ABC] = K[A][AB] = K[A](a - [A] - [ABC])$$
 which yield $$ [ABC] = (K[A])/(1+K[A]) * (a - [A])$$
 
-Note that we could have expressed it as a function of [AB] too:
-$$ [ABC] = (K[AB])/(1+K[AB]) * (a - [AB]) $$
+Note that we can also express $[ABC]$ as a function of [AB] in a similar way:
+$$ [ABC] = (K[AB])/(1+K[AB]) * (a - [AB]). $$
 
 ## Approximations
 ### At the end
 If $b >> a$, and so $1 + K(b-a) ~= Kb$. Then, $$[A] ~= 1/Ka/b$$
 and so $$[ABC] ~= a^2/b$$
 
-### On the beginning
+### At the beginning
 We have $b ~= 0$. There are two cases to consider:
 
 + The binding reactions are fast, in which case $1 + K(b-a) ~= -Ka$

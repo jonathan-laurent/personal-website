@@ -12,7 +12,8 @@ black balls. What is an efficient way to pick uniformly one ball in every urn
 conditionned to the fact that one ball at least has to be black ?
 
 One obvious algorithm would be to make a series of draws and to 
-reject everyone but the first one featuring at least one black ball.
+reject everyone but the first one featuring at least one black ball 
+([rejection sampling](https://en.wikipedia.org/wiki/Rejection_sampling)).
 However, this can get very inefficient when black balls are rare in
 every box, which is typically the case in the application I had in mind.
 
@@ -31,6 +32,8 @@ $$ F(x) = prod_i p_i^(x_i)(1-p_i)^((1-x_i)) $$
 Then, the probability of drawing $x$ conditioned to the fact that
 $x$ contains at least one $1$ coordinate is equal to $0$ if $x = 0$
 and $$ (F(x))/(1 - prod_i (1-p_i))$$ otherwise.
+
+## Solution
 
 ### Implementation in OCaml
 
