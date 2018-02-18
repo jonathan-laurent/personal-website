@@ -1,3 +1,0 @@
-[submodule "provider/KaTeX"]
-	path = provider/KaTeX
-	url = git@github.com:Khan/KaTeX.git
