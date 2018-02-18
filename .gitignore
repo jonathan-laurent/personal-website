@@ -10,3 +10,4 @@
 generated
 
 provider/drafts/*.md
+provider/katex
