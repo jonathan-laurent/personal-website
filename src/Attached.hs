@@ -22,18 +22,19 @@ module Attached
   , attachFile
 
   , withoutAttachments
+  , withoutAttachment
+
   , withAttachedFiles
   , dropAttachedFiles
 
-  , load'
-  , loadAll'
-  , loadAllSnapshots'
-  , saveSnapshot'
   ) where
 
 
-import Control.Monad.Trans.Class
+import Hakyll
+import qualified Config
+
 import Control.Monad (forM_, unless)
+import Control.Monad.Trans.Class
 import Control.Monad.State
 import Control.Monad.Writer
 
@@ -47,10 +48,6 @@ import qualified Data.Set as Set
 import GHC.Generics (Generic)
 import Data.Binary (Binary)
 import Data.Typeable
-
-import Hakyll
-
-import qualified Config
 
 --------------------------------------------------------------------------------
 
@@ -100,7 +97,6 @@ instance Binary Action
 instance MonadTrans AttachedT where
   lift = AttachedT . lift . lift
 
-
 data Attached a = Attached [Action] a deriving (Generic)
 
 deriving instance (Typeable a) => Typeable (Attached a)
@@ -144,7 +140,6 @@ makeFresh name used =
     makeFresh (base ++ "-bis" <.> ext) used
 
 
--- Argument of the second argument: file that should be written
 attach :: String -> ActionType -> AttachedT Compiler String
 attach fileName act = do
   used <- get
@@ -153,7 +148,6 @@ attach fileName act = do
   tell [Action fresh act]
   ((</> fresh) . relPath . dataDirPath) <$> lift getResourceFilePath
 
-
 attachFile :: String -> String -> AttachedT Compiler String
 attachFile file x = attach file (WriteFile x)
 
@@ -161,16 +155,10 @@ attachCmd :: String -> String -> String -> AttachedT Compiler String
 attachCmd file cmd stdin = attach file (RunCmd cmd stdin)
 
 --------------------------------------------------------------------------------
--- Boilerplate to integrate AttachedT with the rest of the Hakyll pipeline
 
 permuteAttachedItem :: Attached (Item a) -> Item (Attached a)
 permuteAttachedItem (Attached act it) =
   itemSetBody (Attached act (itemBody it)) it
-
-_permuteItemAttached :: Item (Attached a) -> Attached (Item a)
-_permuteItemAttached it =
-  let Attached actions x = itemBody it in
-  Attached actions (itemSetBody x it)
 
 withAttachedFiles :: AttachedT Compiler (Item a) -> Compiler (Item (Attached a))
 withAttachedFiles = fmap permuteAttachedItem . runAttachedT
@@ -178,10 +166,6 @@ withAttachedFiles = fmap permuteAttachedItem . runAttachedT
 dropAttachedFiles :: AttachedT Compiler (Item a) -> Compiler (Item a)
 dropAttachedFiles = withoutAttachment . withAttachedFiles
 
--- (Binary a, Typeable a) => Snapshot -> Item a -> Compiler (Item a)
-saveSnapshot' :: (Binary a, Typeable a, MonadTrans t) =>
-                  Snapshot -> Item a -> t Compiler (Item (Attached a))
-saveSnapshot' f it = lift (saveSnapshot f (Attached [] <$> it))
 
 dumpAttached :: Attached a -> a
 dumpAttached (Attached _ x) = x
@@ -191,18 +175,5 @@ withoutAttachment = fmap (fmap dumpAttached)
 
 withoutAttachments :: Compiler [Item (Attached a)] -> Compiler [Item a]
 withoutAttachments = fmap (fmap (fmap dumpAttached))
-
--- These functions have the same signature than their unprimed versions.
--- They can be used to load some resources without their attachments.
-
-load' :: (Binary a, Typeable a) => Identifier -> Compiler (Item a)
-load' f = withoutAttachment (load f)
-
-loadAll' :: (Binary a, Typeable a) => Pattern -> Compiler [Item a]
-loadAll' f = withoutAttachments (loadAll f)
-
-loadAllSnapshots' ::
-  (Binary a, Typeable a) => Pattern -> Snapshot -> Compiler [Item a]
-loadAllSnapshots' f s = withoutAttachments (loadAllSnapshots f s)
 
 --------------------------------------------------------------------------------

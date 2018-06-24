@@ -12,6 +12,8 @@ executable:
   ghc-options: -fno-warn-name-shadowing
 
 dependencies:
+  - hakyll >= 4.10
+  - asciimath
   - base >=4.8
   - mtl
   - containers
@@ -22,9 +24,13 @@ dependencies:
   - process
   - time
   - binary
-  - hakyll >= 4.10
+  - text
+  - yaml
+  - scientific
+  - vector
+  - unordered-containers
+  - utf8-string
   - pandoc
   - pandoc-types
   - blaze-html
-  - asciimath
   - texmath

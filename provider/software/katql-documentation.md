@@ -27,7 +27,7 @@ query -t <your JSON trace file> -q <your query file>
 ## A small tutorial
 
 
-Most examples in this tutorial rely on a model containing
+Most examples in this tutorial rely on a model featuring
 the following rules:
 
 ```kappa
@@ -47,18 +47,18 @@ Let's consider the following query, which prints the current time
 every time a substrate binds to some kinase:
 
 ```katql
-match e:[| S(d[/d.K]) |] do { time[e] }
+match e:{ S(d[/d.K]) } return time[e]
 ```
 
 Some remarks:
 
-+ The keyword `match` introduces a pattern and the keyword `do`
++ The keyword `match` introduces a pattern and the keyword `return`
 introduces an action which is executed for every instance of the
 pattern in the trace.
 + Here, the pattern consists in a single event named `e` that obeys
-the constraint `[| S(d[/d.K]) |]`, meaning _event $e$ binds a substrate
+the constraint `{ S(d[/d.K]) }`, meaning _event $e$ binds a substrate
 to a kinase_. Any mixture modification can be specified between
-double square brackets (`[| ... |]`), the syntax being the same KaSim
+curly brackets (`{ ... }`), the syntax being the same KaSim
 uses for specifying a rule by a left-hand size along with a modification.
 For example:
     * `S(x{/p})`: a substrate just got phosphorylated at $x$
@@ -69,7 +69,7 @@ For example:
     * `S(d[/d.K])` is equivalent to `S(s[/1]), K(d[/1])` in our example
 + `time[e]` is an expression giving the time at which event `e` (defined in
 the pattern) occured. When only an expression is given between
-curly brackets after the `do` keyword, it refers to the action of priting
+curly brackets after the `return` keyword, it refers to the action of priting
 the value of this expression in a new line of the output file generated
 by the query engine (`output.csv` by default).
 
@@ -85,14 +85,14 @@ point number per line.
 
 If we also want to display the name of the associated rule every
 time a binding event occur, we can augment our query as follows:
-`match e:[| S(d[/d.K]) |] do { time[e], rule[e] }`.
+`match e:{ S(d[/d.K]) } return (time[e], rule[e])`.
 This would produce a CSV file with two columns. It is possible
 to specify a custom output file for a query, along with
 column headers for the resulting CSV file, in which case our query becomes:
 
 ```katql
 query 'bind.csv' {'binding-time', 'binding-rule'}
-match e:[| S(/d[d.K]) |] do { time[e], rule[e] }
+match e:{ S(/d[d.K]) } return (time[e], rule[e])
 ```
 
 ### An other simple example
@@ -103,8 +103,8 @@ that the involved kinase is phosphorylated itself. For this, we can use
 the following query:
 
 ```katql
-match phos:[| S(x{/p}, d[1]), k:K(d[1]) |]
-do { int_state[.phos]{k.x} }
+match p:{ S(x{/p}, d[1]), k:K(d[1]) }
+return int_state[.p]{k.x}
 ```
 
 As opposed to `time` and `rule` that are _event measure_
@@ -118,16 +118,16 @@ mixture **after** the triggering of `e`.
 ### Average lifespan of a bond
 
 Let's suppose we want to estimate the average lifespan of a bond
-between a kinase and a substrate. This can be done using the following query:
+between a kinase and a substrate. This can be returnne using the following query:
 
 ```katql
-match b:[| s:S(d[/1]), K(d[/1])  |]
-and first u:[| s:S(d[/.]) |] after b
-do { time[u] - time[b] }
+match b:{ s:S(d[/1]), K(d[/1]) }
+and first u:{ s:S(d[/.]) } after b
+return (time[u] - time[b])
 ```
 
-Here, the clause `first u:[| s:S(d[/.]) |] after b` defines `u` as the first event
-after `b` matching the event pattern `[| s:S(d[/.]) |]`. 
+Here, the clause `first u:{ s:S(d[/.]) } after b` defines `u` as the first event
+after `b` matching the event pattern `{ s:S(d[/.]) }`. 
 
 Now, let's say we want to compute the average lifespan of a bond between
 a kinase and a substrate conditionned to the fact that the kinase is 
@@ -135,31 +135,31 @@ phosphorylated before the bond breaks. A tempting but **wrong** way to
 answer this question would be using the following query:
 
 ```katql
-match b:[| (d[/1]), k:K(d[/1])  |]
-and first u:[| k:K(d[/.], x{p}) |] after b
-do { time[u] - time[b] }
+match b:{ (d[/1]), k:K(d[/1]) }
+and first u:{ k:K(d[/.], x{p}) } after b
+return (time[u] - time[b])
 ```
 
 Instead, one of the following queries should be used:
 
 ```katql
-match b:[| S(d[/1]), k:K(d[/1])  |]
-and first u:[| k:K(d[/.]) |] after b
-and u:[| k:K(x{p}) |]
-do { time[u] - time[b] }
+match b:{ S(d[/1]), k:K(d[/1]) }
+and first u:{ k:K(d[/.]) } after b
+and u:{ k:K(x{p}) }
+return (time[u] - time[b])
 ```
 
 ```katql
-match b:[| S(d[/1]), k:K(d[/1])  |]
-and first u:[| k:K(d[/.]) |] after b
+match b:{ S(d[/1]), k:K(d[/1]) }
+and first u:{ k:K(d[/.]) } after b
 when int_state[.u]{k.x} = 'p'
-do { time[u] - time[b] }
+return (time[u] - time[b])
 ```
 
 ```katql
-match u:[| k:K(x{p}, d[/.])  |]
+match u:{ k:K(x{p}, d[/.]) }
 and last b:[ k:K(d[/d.S]) ] before u
-do { time[u] - time[b] }
+return (time[u] - time[b])
 ```
 
 
@@ -190,8 +190,9 @@ grammar will be given later.
 match <trace-pattern>
 [ every <num> seconds ]
 [ when <expr> ]
-do { <expr> }
+return { <expr> }
 ```
+
 
 Some remarks:
 
@@ -224,8 +225,8 @@ keyword. Clauses can have three forms:
 
 In turn, an _event pattern_ can be given by one of the following syntaxes:
 
-+ `e:[| ... |]` where `e` is an event id and `...` refers to a Kappa delta expression
-+ `e:[| ... |] with <expr>` where `<expr>` is an aditional constraint given
++ `e:{ ... }` where `e` is an event id and `...` refers to a Kappa delta expression
++ `e:{ ... } with <expr>` where `<expr>` is an aditional constraint given
 by a boolean expression
 
 ### Types and operators
@@ -274,7 +275,7 @@ with both types `int` and `float`.
 
 Finally, the identifier of an agent alone is not a valid expression.
 For example, the following query is ill-formed:
-`match e:[| s:S(x~[p])  |] do { s }`. In order to get the integer value
+`match e:{ s:S(x~[p]) } return s`. In order to get the integer value
 that corresponds to the identifier of agent `s`, use the `agent_id{s}`
 construct.
 
@@ -306,15 +307,15 @@ format to native KaSim expressions.
 The trace query engine as currently implemented is subject to the following
 limitations:
 
-+ Delta expressions in event patterns (delimited by `[| ... |]`) have
++ Delta expressions in event patterns (delimited by `{ ... }`) have
 to feature at least one modification. Besides, once an event pattern is
 associated to an event, the agents it features must admit a unique consistent
 mapping with agents in the mixture.
 
 + We define the _dependency graph_ of a trace pattern $P$ as follows: each
 event pattern corresponds to a node and there is an arrow from event
-$a$ to event $b$ if a clause of the form `first b:[| ... |] after a` or
-`last a:[| ... |] before b` appears in $P$.
+$a$ to event $b$ if a clause of the form `first b:{ ... } after a` or
+`last a:{ ... } before b` appears in $P$.
 The current implementation requires that the
 dependency graph be _rooted_ in the sense that it must admit a node from
 which every other node is reachable.

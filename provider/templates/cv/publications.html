@@ -1,0 +1,21 @@
+<div class="cv-section-body not-indented">
+
+    <div class="cv-subsection">
+        <h3>Conference and Journal Papers</h3>
+        <div class="cv-subsection-body">
+            $for(conf-items)$
+                $partial("templates/cv/generic/publication.html")$
+            $endfor$
+        </div>
+    </div>
+
+    <div class="cv-subsection">
+        <h3>Workshop Papers and Technical Reports</h3>
+        <div class="cv-subsection-body">
+            $for(report-items)$
+                $partial("templates/cv/generic/publication.html")$
+            $endfor$
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,87 @@
+///////////////////////////////////////////////////////////////////////////////
+// Personal Website Stylesheet
+// Jonathan Laurent (2018)
+///////////////////////////////////////////////////////////////////////////////
+
+$main-font:          "Gentium Basic" ;
+$title-font:         "Gentium Basic";
+$ttfont:             "Computer Modern Typewriter" ;
+
+$font-size:          10.5pt ;
+$def-line-height:    1.7 ;
+$page-width:         750px ;
+$bradius:            5px ;
+
+$textcolor:          lighten(black, 0%) ;
+$textdark:           lighten(black, 0%) ;
+
+$bgcolor:            white ;
+$abstract-bgcolor:   #DDDDDD ;
+$code-bgcolor:       #F5F5F5 ;
+$foot-bgcolor:       $bgcolor ; // $abstract-bgcolor ;
+$header-bgcolor:     lighten($abstract-bgcolor, 8%) ;
+
+$abstract-border:    darken($abstract-bgcolor, 10%) ;
+$foot-border:        darken($foot-bgcolor, 10%) ;
+$header-border:      darken($abstract-bgcolor, 10%) ;
+$h2-border:          $abstract-border ;
+$link-line-color:    lighten($textcolor, 80%) ;
+$link-lcolor-dark:   darken($link-line-color, 10%) ;
+
+$ssep:               0.5em ;
+$msep:               1.0em ;
+$lsep:               2.0em ;
+$xlsep:              4.0em ;
+
+$sec-margin:         2.5em ;
+$main-top-margin:    2.0em ;
+$indent:             2em ;
+$date-len:           10em ;
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+@mixin small-devices {
+    @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 480px)
+    { @content ; }
+}
+
+@mixin smart-bold($col) {
+    text-shadow: -0.02ex 0 $col, 0.02ex 0 $col
+}
+
+@mixin block-spaces {
+    padding: 0.8em 1em ;
+    margin-top: 1em ;
+    margin-bottom: 1em ;
+}
+
+@mixin underlined {
+    text-decoration: underline ;
+    text-decoration-style: solid ;
+    text-decoration-color: $link-lcolor-dark ;
+}
+
+@mixin multi-sections($margins, $intercol) {
+    display: grid ;
+    grid-template-columns: 1fr ;
+    grid-row-gap: $intercol ;
+
+    > * {
+        margin-top: $margins ;
+        margin-bottom: $margins ;
+    }
+}
+
+@mixin spaced-paragraphs($mlen) {
+    p { display: block ; margin: $mlen 0 ; }
+    p:first-child { margin-top: 0 }
+    p:last-child { margin-bottom: 0 }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// REFERENCES
+// https://stackoverflow.com/questions/5687035/css-bolding-some-text-without-changing-its-containers-size

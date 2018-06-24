@@ -2,10 +2,19 @@ module Compilers.Scss (compressScssCompiler) where
 
 import Hakyll
 
+import Config (hakyllConfig)
+import System.FilePath ((</>))
+
+styleFolder :: FilePath
+styleFolder = "css" </> "style"
+
 compressScssCompiler :: Compiler (Item String)
-compressScssCompiler =
+compressScssCompiler = do
+  -- This is important to get the dependencies right
+  _ <- loadAll (fromGlob (styleFolder </> "**.scss")) :: Compiler [Item ()]
   fmap (fmap compressCss) $
     getResourceString
     >>= withItemBody (unixFilter "sass" opts)
-  where opts = 
-          [ "-s", "--scss", "--style", "compressed", "--load-path", "scss" ]
+  where
+    loadPath = providerDirectory hakyllConfig </> styleFolder
+    opts = [ "-s", "--scss", "--style", "compressed", "--load-path", loadPath ]

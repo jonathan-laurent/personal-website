@@ -40,6 +40,6 @@ As a consequence, by using Newton's identity on the ring $(E, +, @)$ of
 $E$'s endomorphisms, we have:
 $$(Del_1 + Del_2)^n = sum_(k=0)^n k choose n Del_1^k @ Del_2^(n-k)$$
 and so $$(Del_1 + Del_2)^n(e_(0,0)) = sum_(k=0)^n k choose n e_(k, n-k).$$
-Finally, $$(f+g)^((n)) = [Del^n e_(0,0)]_(f,g) = [(Del_1+Del_2)^n e_(0, 0)]_(f, g) 
+Finally, $$(f+g)^((n)) = [Del^n (e_(0,0))]_(f,g) = [(Del_1+Del_2)^n (e_(0, 0))]_(f, g) 
 = sum_(k=0)^n k choose n f^((k))g^((n-k))$$
 which establishes the general Leibniz rule.

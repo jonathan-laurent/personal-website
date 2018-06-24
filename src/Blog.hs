@@ -7,16 +7,14 @@ module Blog
 
 import Hakyll
 import Config
-
-import Data.Time
-import Control.Monad
-import Data.Monoid ((<>))
-import Data.List (sortBy)
-import Data.Ord (comparing)
-import Control.Monad.Trans.Class (lift)
-
 import Attached
 import Compilers
+
+import Utils (createdFirst, beautifyHtml)
+
+import Control.Monad
+import Data.Monoid ((<>))
+import Control.Monad.Trans.Class (lift)
 
 --------------------------------------------------------------------------------
 
@@ -27,7 +25,7 @@ data BlogOptions = BlogOptions
     , tagsPages :: String -> Identifier
     , indexTemplate :: Identifier
     , tagsPageTemplate :: Identifier
-    , nRecentDisplayed :: Int 
+    , nRecentDisplayed :: Int
     , blogDefContext :: Context String }
 
 
@@ -38,24 +36,16 @@ postCtx opts tags = mconcat
     , blogDefContext opts ]
 
 
-postCompiler :: 
+postCompiler ::
     SiteOptions -> BlogOptions -> Tags -> Compiler (Item (Attached String))
-postCompiler site blog tags = 
+postCompiler site blog tags =
     withAttachedFiles $ do
     pandoc <- markdownCompiler site
     lift (
-        loadAndApplyTemplate "templates/post.html" (postCtx blog tags) pandoc
-        >>= loadAndApplyTemplate "templates/default.html" (blogDefContext blog)
+        loadAndApplyTemplate "templates/posts/post.html" (postCtx blog tags) pandoc
+        >>= loadAndApplyTemplate baseTemplate (blogDefContext blog)
+        >>= beautifyHtml
         >>= relativizeUrls )
-
-
-createdFirst :: [Item String] -> Compiler [Item String]
-createdFirst items = do
-  itemsWithTime <- forM items $ \item -> do
-    -- getItemUTC looks for the metadata "published" or "date"
-    utcTime <- getItemUTC defaultTimeLocale $ itemIdentifier item
-    return (utcTime ,item)
-  return $ map snd $ sortBy (flip (comparing fst)) itemsWithTime
 
 
 renderTagged :: BlogOptions -> String -> Compiler String
@@ -63,11 +53,11 @@ renderTagged blog tag = do
     ids <-
         getMatches (posts blog)
         >>= filterM (getTags >=> return . (tag `elem`))
-    let its = mapM load' ids >>= createdFirst
+    let its = mapM (withoutAttachment . load) ids >>= createdFirst
     let ctx = listField "posts" (blogDefContext blog) its
     fmap itemBody (
         makeItem ("" :: String)
-        >>= loadAndApplyTemplate "templates/post-list-simple.html" ctx)
+        >>= loadAndApplyTemplate "templates/posts/list-simple.html" ctx)
 
 
 taggedPostsCtx :: BlogOptions -> Context String
@@ -82,14 +72,15 @@ taggedPostsCtx blog =
 
 indexPage :: BlogOptions -> Tags -> Compiler (Item String)
 indexPage blog tags = do
-    recent <- take (nRecentDisplayed blog) <$> 
-              (createdFirst =<< loadAll' (posts blog))
+    recent <- take (nRecentDisplayed blog) <$>
+              (createdFirst =<< withoutAttachments (loadAll (posts blog)))
     let ctx = constField "title" (blogTitle blog)
            <> listField "posts" (postCtx blog tags) (return recent)
            <> taggedPostsCtx blog
     makeItem ""
         >>= loadAndApplyTemplate (indexTemplate blog) ctx
-        >>= loadAndApplyTemplate "templates/default.html" (blogDefContext blog)
+        >>= loadAndApplyTemplate baseTemplate (blogDefContext blog)
+        >>= beautifyHtml
         >>= relativizeUrls
 
 
@@ -106,14 +97,15 @@ generateBlog site blog = do
         let title = "Posts tagged \"" ++ tag ++ "\""
         route idRoute
         compile $ do
-            ps <- createdFirst =<< loadAll' taggedPosts
+            ps <- createdFirst =<< withoutAttachments (loadAll taggedPosts)
             let ctx = constField "title" title
                    <> constField "tag" tag
                    <> listField "posts" (postCtx blog tags) (return ps)
                    <> blogDefContext blog
             makeItem ""
                 >>= loadAndApplyTemplate (tagsPageTemplate blog) ctx
-                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= loadAndApplyTemplate baseTemplate ctx
+                >>= beautifyHtml
                 >>= relativizeUrls
 
 --------------------------------------------------------------------------------

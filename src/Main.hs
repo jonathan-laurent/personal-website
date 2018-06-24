@@ -2,13 +2,6 @@
 
 module Main where
 
-import Data.Default
-import Control.Monad
-import System.FilePath
-import Data.Maybe (isJust)
-import System.Process (callCommand)
-import System.Environment (getArgs, lookupEnv)
-
 import Hakyll
 
 import Attached
@@ -17,21 +10,23 @@ import Compilers
 import Page
 import Blog
 import Config
+import Utils
+
+import Data.Default
+import Control.Monad
+import System.FilePath
+import System.Process (callCommand)
+import System.Environment (getArgs, lookupEnv)
 
 --------------------------------------------------------------------------------
 
 runHakyll :: SiteOptions -> IO ()
 runHakyll opts = hakyllWith hakyllConfig $ do
 
-  let imagesToCopy = "img/**" .&&. complement "img/bw/**"
-  let toCopy = "katex/**" .||. "fonts/**" .||. "pdf/**" .||. imagesToCopy
+  let toCopy = "katex/**" .||. "fonts/**" .||. "pdf/**" .||. "downloads/**" .||. "img/**"
   match toCopy $ do
     route idRoute
     compile copyFileCompiler
-
-  match "img/bw/**" $ do
-    route idRoute
-    compile bwImageCompiler
 
   match ("math/*" .||. "*.txt" .||. "siteroot") $
     compile getResourceString
@@ -44,31 +39,32 @@ runHakyll opts = hakyllWith hakyllConfig $ do
     route (setExtension "css")
     compile compressScssCompiler
 
+  match "css/style/**.scss" $
+    -- We do not have to read these files but we track them as dependencies
+    compile $ makeItem ()
+
   createPygmentStyle "css/pygment.css" (pygmentStyle opts)
 
-  match "templates/*" $ compile templateCompiler
-
-  match "fragments/*" $
-    compile $ dropAttachedFiles (markdownCompiler opts)
-
-  match "software/*.md" $ do
-    route $ setExtension ".html"
-    compile $ pageCompiler Simple opts
+  match "templates/**" $
+    compile templateCompiler
 
   mapM_ (generateBlog opts) [blogOptions, notesOptions, draftsOptions]
 
-  let errorPages = "404.md" .||. "forbidden.md"
+  match "content/**.md" $
+    compile $ dropAttachedFiles (markdownCompiler opts)
 
-  match ("*.md" .&&. complement errorPages) $ do
-    route $ setExtension ".html"
-    compile $ pageCompiler Raw opts
+  match "content/**.yaml" $
+    compile getResourceBody
 
-  -- Render the error pages: we don't relativize URLs here
-  match errorPages $ do
+
+  match "software/*.md" $ do
     route $ setExtension ".html"
-    compile $ pandocCompiler
-        >>= loadAndApplyTemplate "templates/default.html" defContext
-        >>= useAbsoluteUrls
+    compile $ simpleMarkdownPageCompiler opts
+
+  match "*.html" $ do
+    route idRoute
+    compile pageCompiler
+
 
 --------------------------------------------------------------------------------
 
@@ -77,10 +73,10 @@ blogOptions = BlogOptions
   { blogTitle = "Blog"
   , posts = "blog/**.md"
   , tagsPages = fromCapture "tags/blog/*.html"
-  , blogDefContext = defContext
+  , blogDefContext = baseContext
   , indexIdentifier = "blog.html"
-  , indexTemplate = "templates/blog-index.html"
-  , tagsPageTemplate = "templates/blog-tag.html" 
+  , indexTemplate = "templates/blog/index.html"
+  , tagsPageTemplate = "templates/blog/tag.html"
   , nRecentDisplayed = 5 }
 
 notesOptions :: BlogOptions
@@ -88,10 +84,10 @@ notesOptions = BlogOptions
   { blogTitle = "Notes"
   , posts = "notes/**.md"
   , tagsPages = fromCapture "tags/notes/*.html"
-  , blogDefContext = defContext
+  , blogDefContext = baseContext
   , indexIdentifier = "notes.html"
-  , indexTemplate = "templates/notes-index.html"
-  , tagsPageTemplate = "templates/notes-tag.html"
+  , indexTemplate = "templates/notes/index.html"
+  , tagsPageTemplate = "templates/notes/tag.html"
   , nRecentDisplayed = 5 }
 
 draftsOptions :: BlogOptions
@@ -99,10 +95,10 @@ draftsOptions = BlogOptions
   { blogTitle = "Drafts"
   , posts = "drafts/**.md"
   , tagsPages = fromCapture "tags/drafts/*.html"
-  , blogDefContext = defContext
+  , blogDefContext = baseContext
   , indexIdentifier = "drafts.html"
-  , indexTemplate = "templates/drafts-index.html"
-  , tagsPageTemplate = "templates/drafts-tag.html"
+  , indexTemplate = "templates/drafts/index.html"
+  , tagsPageTemplate = "templates/drafts/tag.html"
   , nRecentDisplayed = 30 }
 
 --------------------------------------------------------------------------------
@@ -116,7 +112,7 @@ copyHtAccess = do
         putStrLn "Copying .htaccess files"
         mapM_ copy [".htaccess", ".htpasswd", "drafts/.htaccess"]
     _ -> return ()
-  where 
+  where
     copy f = do
       callCommand ("mkdir -p " ++ takeDirectory dst)
       callCommand ("cp " ++ src ++ " " ++ dst)
@@ -128,9 +124,11 @@ copyHtAccess = do
 main :: IO ()
 main = do
   putStrLn "Generating website."
-  isQuickPreview <- isJust <$> lookupEnv "PREVIEW"
+  isQuickPreview <- isTrue <$> lookupEnv "PREVIEW"
   let opts = def { quickPreview = isQuickPreview }
   copyHtAccess
   runHakyll opts
+  where
+    isTrue v = v `elem` map Just ["true", "True"]
 
 --------------------------------------------------------------------------------

@@ -1,5 +1,4 @@
 #!/bin/sh
 
-#export PREVIEW=true # Comment to exit the preview mode
-#stack exec site rebuild
+export PREVIEW=false
 stack exec site watch

@@ -1,0 +1,13 @@
+<div class="cv-item" $if(id)$ id="$id$" $endif$ >
+    <div class="with-date">
+        <div>
+            <div class="cv-item-title">
+                $title$
+            </div>
+            <div class="cv-item-description">
+                $body$
+            </div>
+        </div>
+        $partial("templates/cv/generic/date.html")$
+    </div>
+</div>

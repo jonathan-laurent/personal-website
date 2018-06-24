@@ -1,0 +1,126 @@
+///////////////////////////////////////////////////////////////////////////////
+// Personal Website Stylesheet
+// Jonathan Laurent (2018)
+///////////////////////////////////////////////////////////////////////////////
+
+* { margin: 0 ; padding: 0 }
+
+///////////////////////////////////////////////////////////////////////////////
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $title-font ;
+    font-weight: bold ;
+}
+
+h1 { font-size: 1.3em }
+h2 { font-size: 1.15em }
+h3 { font-size: 1.00em }
+
+h2 {
+    @if variable-exists(h2-border){
+        border-bottom: 1px solid $h2-border }
+}
+
+h1 {
+    margin-top: 1.7em ;
+    margin-bottom: 1em ;
+}
+
+h2 {
+    margin-top: 1.5em ;
+    padding-bottom: 0.1em ;
+    margin-bottom: 1em ;
+}
+
+h3 {
+    margin-top: 1.5em ;
+    margin-bottom: 0.5em ;
+}
+
+h4, h5, h6 {
+    margin-top: 1.1em ;
+    margin-bottom: 0.5em ;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Links
+
+a {
+    color: $textdark ;
+    //border-bottom: 1px dotted $link-line-color ;
+    @include underlined ;
+}
+
+a:hover {
+    text-shadow: none ;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+li { 
+    list-style-type:square ;
+    margin-left: 2em ;
+    margin-top: 0.5em ;
+    margin-bottom: 0.5em ;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+.katex { font-size: 1em !important }
+
+.katex-display { margin: 0.8em 0 }
+  
+.katex-display .katex { font-size: 1em !important }
+
+///////////////////////////////////////////////////////////////////////////////
+// CODE
+
+/* There are three kinds of code blocks.
+   1. Inline code: <code>...</code>
+   1. Pandoc default display code blocks: <pre><code>...</code></pre>
+   2. Display (highlighted): <div class="listing"><code>...</code></div> */
+
+// We should not assign any style to <pre> but we can use it to
+// recognize code blocks
+
+pre { font-family: $ttfont }
+
+// Inline code and common peoperties of code
+code {
+    font-family: $ttfont ;
+    background-color: $code-bgcolor ;
+    border-radius: $bradius ;
+    font-size: 90% ;
+    padding: 0.2em 0.4em ;
+}
+
+pre code, .listing code { 
+    display: block ;
+    @include block-spaces ;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+table { margin-left: -2px }
+
+table td {
+    padding-right: 0.5em
+}
+
+blockquote {
+    font-size: 1em ;
+    font-style: italic ;
+    background-color: $code-bgcolor ;
+    border-radius: $bradius ;
+    @include block-spaces ;
+    p { margin-bottom: 0 !important }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+img.graphviz, img.diagram {
+    display: block ;
+    margin: 1em auto ;
+}
+
+///////////////////////////////////////////////////////////////////////////////

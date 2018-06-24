@@ -8,6 +8,9 @@ import Data.Default
 attachmentDirSuffix :: String
 attachmentDirSuffix = "-data"
 
+baseTemplate :: Identifier
+baseTemplate = fromFilePath "templates/base.html"
+
 hakyllConfig :: Configuration
 hakyllConfig = defaultConfiguration
   { deployCommand = "./deploy.sh"

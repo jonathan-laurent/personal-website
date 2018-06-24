@@ -1,0 +1,41 @@
+<div class="cv-section-body">
+
+    $for(talks)$
+
+    <div class="cv-item talk">
+        <div class="talk-title cv-item-title">
+            $title$
+        </div>
+        $for(locations)$
+            <div class="with-date">
+                <div class="talk-infos cv-item-subtitle">
+                    $if(event)$ 
+                        $if(where)$
+                            $event$,
+                        $else$
+                            $event$
+                        $endif$
+                    $endif$
+                    $if(where)$ $where$. $endif$
+                </div>
+                <div class="date">
+                    $format-date(date, "%B %Y")$
+                </div>
+            </div>
+        $endfor$
+        <div class="cv-item-description">
+            $if(slides)$
+                <a class="button" href="$slides$">Slides</a>
+            $endif$
+            $if(slides-pdf)$
+                <a class="button" href="$slides-pdf$">Slides (PDF)</a>
+            $endif$
+            $if(video)$
+                <a class="button" href="$video$">Video</a>
+            $endif$
+        </div>
+    </div>
+
+    $endfor$
+
+</div>

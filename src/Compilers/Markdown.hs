@@ -1,6 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Compilers.Markdown (markdownCompiler) where
+module Compilers.Markdown 
+  ( markdownCompiler
+  , simpleMarkdownCompiler ) where
 
 import Hakyll
 import Config
@@ -47,6 +49,11 @@ markdownCompiler opts = do
     >>= processMath mathConfig
     >>= processGraphviz
     >>= processDiagrams
+    >>= processHidden
     >>= (if quickPreview opts then return else processCode))
 
-  --------------------------------------------------------------------------------
+  
+simpleMarkdownCompiler :: Compiler (Item String)
+simpleMarkdownCompiler = dropAttachedFiles (markdownCompiler def)
+
+--------------------------------------------------------------------------------

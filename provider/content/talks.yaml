@@ -1,0 +1,42 @@
+- title: Causal Analysis of Rule-Based Models through Counterfactual Reasoning
+  slides: /pdf/slides/pop-fall-2017.key
+  duration: 45 minutes
+  locations:
+    - event: SASB Workshop
+      where: New-York
+      date: 2017-08-29
+    - event: PL Lunch, Carnegie Mellon University
+      where: Pittsburgh
+      date: 2017-09-29
+    - where: University of Alabama, Birmingham
+      date: 2017-09-17
+    - event: Harvard PL Seminar
+      where: Boston
+      date: 2017-12-13
+
+
+- title: Uncovering Pathways in Biomolecular Interaction Networks
+  slides: /pdf/slides/pop-spring-2017.key
+  slides-pdf: /pdf/slides/pop-spring-2017.pdf
+  duration: 45 minutes
+  locations:
+    - event: PL Lunch, Carnegie Mellon University
+      where: Pittsburgh
+      date: 2017-04-14
+
+
+- title: Peut-on tout calculer ?
+  comments: two hours introductory lecture on decidability theory
+  slides: /pdfs/calc-intro-llg
+  locations:
+    - where: Lycée Louis-Le-Grand, Paris
+      date: 2014-12-18
+
+
+- title: SMT-based Model-Checking Techniques for the Verification of Synchronous Dataflow Programs
+  slides: /pdfs/slide/nia-talk.pdf
+  video: http://nia-mediasite.nianet.org/NIAMediasite100/Play/b9a15957f7574756bb52f0ea6a4ca5471d
+  duration: 1 hour
+  locations:
+    - where: National Institute of Aerospace, Hampton
+      date: 2014-08-11

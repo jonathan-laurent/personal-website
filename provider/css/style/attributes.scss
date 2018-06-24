@@ -1,0 +1,62 @@
+///////////////////////////////////////////////////////////////////////////////
+// GRIDS
+///////////////////////////////////////////////////////////////////////////////
+
+.cols-auto-small {
+    display: grid ;
+    grid-template-columns: auto max-content ;
+    align-items: center ;
+}
+
+.cols-small-auto {
+    display: grid ;
+    grid-template-columns: max-content auto ;
+    align-items: center ;
+}
+
+.smartgrid {
+    display: grid ;
+    grid-template-columns: repeat(2, 1fr) ;
+    @include small-devices {
+        grid-template-columns: repeat(1, 1fr) ;
+    }
+    align-items: center ;
+    grid-column-gap: 3em ;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// IMAGES
+///////////////////////////////////////////////////////////////////////////////
+
+img.floatr {
+    display: block ;
+    float: right ;
+}
+
+img.floatl {
+    display: block ;
+    float: left ;
+}
+
+img.ornemental {
+    @include small-devices { display: none }
+}
+
+img.rmargin { margin-right: 2em }
+
+img.lmargin { margin-left: 3em }
+
+///////////////////////////////////////////////////////////////////////////////
+
+.indented {
+    margin-left: $indent ;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+.tooltip {
+    @include underlined ;
+    cursor: help ;
+}
+
+///////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,29 @@
+<div class="cv-section-body">
+
+    $for(education-items)$
+
+        <div class="cv-item">
+            <div class="with-date">
+                <div>
+                    <div class="cv-item-title">
+                        <span class="edu-institution">
+                            $institution$,
+                        </span>
+                        <span class="edu-location">
+                            $location$
+                        </span>
+                    </div>
+                    <div class="cv-item-subtitle">
+                        $markdown(subtitle)$
+                    </div>
+                    <div class="cv-item-description">
+                        $body$
+                    </div>
+                </div>
+                $partial("templates/cv/generic/date.html")$
+            </div>
+        </div>
+
+    $endfor$
+
+</div>

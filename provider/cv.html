@@ -1,0 +1,39 @@
+---
+title: Jonathan Laurent CV
+data:
+    - { field: abstract, src: content/abstract.md }
+    - { field: education-items, src: content/education }
+    - { field: teaching-items, src: content/teaching }
+    - { field: research-items, src: content/research }
+    - { field: conf-items, src: content/publications/conference, order: date }
+    - { field: report-items, src: content/publications/report, order: date }
+    - { field: talks, src: content/talks.yaml }
+---
+
+$partial("templates/abstract.html")$
+
+<div id=main class="cv inside">
+    <section>
+        <h2>Education</h2>
+        $partial("templates/cv/education.html")$
+    </section>
+    <section>
+        <h2>Research Experience</h2>
+        $partial("templates/cv/research.html")$
+    </section>
+    <section>
+        <h2>Teaching Experience</h2>
+        $partial("templates/cv/teaching.html")$
+    </section>
+    <section>
+        <h2>Publications</h2>
+        $partial("templates/cv/publications.html")$
+    </section>
+    <section>
+        <h2>Selected Talks</h2>
+        $partial("templates/cv/talks.html")$
+    </section>
+    <section>
+        <!--<h2>Professional Service</h2>-->
+    </section>
+</div>

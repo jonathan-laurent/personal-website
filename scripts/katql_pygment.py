@@ -20,7 +20,7 @@ class KappaTraceQueryLexer(RegexLexer):
     filenames = ['*.katp']
 
     keywords = ["match", "last", "first", "after", "before", "when", \
-                "with", "and", "do", "yield", "query", "every", "seconds"]
+                "with", "and", "do", "return", "query", "every", "seconds"]
 
     funs = ["time", "state", "nphos", "this", "component", "count", \
             "rule", "int_state"]
