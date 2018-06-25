@@ -48,9 +48,13 @@ img.lmargin { margin-left: 3em }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-.indented {
-    margin-left: $indent ;
-}
+.indented { margin-left: $indent }
+
+.small-sep { height: $ssep }
+
+.medium-sep { height: $msep }
+
+.large-sep { height: $lsep }
 
 ///////////////////////////////////////////////////////////////////////////////
 
