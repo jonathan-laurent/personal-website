@@ -5,7 +5,7 @@ data:
     - { field: news, src: content/news.yaml }
     - { field: software, src: content/software.md }
 
-    - field: featured-publications 
+    - field: featured-publications
       src:
         - content/publications/conference/IJCAI18.md
         - content/publications/conference/CMSB18.md
@@ -39,8 +39,8 @@ $partial("templates/abstract.html")$
             $endfor$
         </div>
     </section>
-    
-    <section>
+
+    <section id="software">
         <h2>Software</h2>
         <div class="indented">
             $software$
