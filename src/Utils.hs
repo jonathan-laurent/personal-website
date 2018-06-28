@@ -16,6 +16,7 @@ module Utils
     , getBoolMetadata
     , enableMarkdown
     , markdownFunctionField
+    , inlineMarkdownFunctionField
     , beautifyHtml ) where
 
 --------------------------------------------------------------------------------
@@ -78,6 +79,7 @@ altContext =
   generationDateCtx <>
   itemIdCtx <>
   markdownFunctionField <>
+  inlineMarkdownFunctionField <>
   formatDateFunctionField
 
 baseContext :: Context String
@@ -96,14 +98,50 @@ pandocStr str = handleError . runPure $
     handleError (Left err) = error (show err)
     opts = def { readerExtensions = pandocExtensions }
 
-markdownFunctionField :: Context a
-markdownFunctionField = functionField "markdown" markdown
+
+removePrefix :: String -> String -> String
+removePrefix pre s =
+  if pre `isPrefixOf` s then drop (length pre) s
+  else s
+
+removeSuffix :: String -> String -> String
+removeSuffix suf s = reverse (removePrefix (reverse suf) (reverse s))
+
+markdownFunctionField' :: String -> Bool -> Context a
+markdownFunctionField' name stripEnclosingMarkup =
+  functionField name markdown
   where
     markdown args _item =
       case args of
-        []    -> error "Missing argument for $markdown$"
-        _:_:_ -> error "Too many arguments for $markdown$"
-        [arg] -> return (pandocStr arg)
+        []    -> error ("Missing argument for $" ++ name ++ "$")
+        _:_:_ -> error ("Too many arguments for $" ++ name ++ "$")
+        [arg] ->
+          if stripEnclosingMarkup then
+            return (stripEnclosing (pandocStr arg))
+          else
+            return (pandocStr arg)
+
+    stripEnclosing = removePrefix "<p>" . removeSuffix "</p>"
+
+    {- For some reason, Haskell regular expressions do not work well
+       with Unicode
+
+    stripEnclosing :: String -> String
+    stripEnclosing s =
+      let pat = "^<p>(.*)</p>$" :: String in
+      case s =~ pat :: [[String]] of
+        [] -> s
+        [[_, sub]] -> traceShow (s =~ pat :: [[String]]) sub
+        _ -> undefined
+    -}
+
+
+markdownFunctionField :: Context a
+markdownFunctionField = markdownFunctionField' "markdown" False
+
+inlineMarkdownFunctionField :: Context a
+inlineMarkdownFunctionField = markdownFunctionField' "inline-markdown" True
+
 
 stringFilter :: (String -> String) -> Context a -> Context a
 stringFilter f ctx =
