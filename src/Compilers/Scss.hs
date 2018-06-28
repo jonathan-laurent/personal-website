@@ -17,4 +17,4 @@ compressScssCompiler = do
     >>= withItemBody (unixFilter "sass" opts)
   where
     loadPath = providerDirectory hakyllConfig </> styleFolder
-    opts = [ "-s", "--scss", "--style", "compressed", "--load-path", loadPath ]
+    opts = [ "--stdin", "--style", "compressed", "--load-path", loadPath ]
