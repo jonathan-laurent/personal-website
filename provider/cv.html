@@ -10,6 +10,7 @@ data:
     - { field: talks, src: content/talks.yaml }
     - { field: awards, src: content/awards.yaml }
     - { field: service-items, src: content/service.yaml }
+    - { field: skills, src: content/skills.md }
 ---
 
 $partial("templates/abstract.html")$
@@ -39,8 +40,12 @@ $partial("templates/abstract.html")$
         <h2>Honors and Awards</h2>
         $partial("templates/cv/awards.html")$
     </section>
-    <section id-"service">
+    <section id="service">
         <h2>Professional Service</h2>
         $partial("templates/cv/service.html")$
+    </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        $partial("templates/cv/skills.html")$
     </section>
 </div>
