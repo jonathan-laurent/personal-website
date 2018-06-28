@@ -17,23 +17,22 @@
     .cv-item-subtitle { font-style: italic }
 
     .cv-item-description {
-
         margin-left: $indent ;
         p { text-align: justify }
-
-        .hidden {
-            font-size: 90% ;
-            background-color: $code-bgcolor ;
-            border-radius: $bradius ;
-            @include block-spaces ;
-            h3:first-child { margin-top: 0.2em } ;
-        }
     }
 }
 
-.cv-subsection { 
+.cv-item .hidden, .news-item .hidden {
+    font-size: 90% ;
+    background-color: $code-bgcolor ;
+    border-radius: $bradius ;
+    @include block-spaces ;
+    h3:first-child { margin-top: 0.2em } ;
+}
+
+.cv-subsection {
     margin-bottom: 2em ;
-    h3 { 
+    h3 {
         font-size: 1.1em ;
         margin-bottom: 1em ;
     }

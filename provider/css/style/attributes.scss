@@ -56,6 +56,15 @@ img.lmargin { margin-left: 3em }
 
 .large-sep { height: $lsep }
 
+.xsmall-hsep { display: inline-block ; width: $xssep }
+
+.small-hsep { display: inline-block ; width: $ssep }
+
+.medium-hsep { display: inline-block ; width: $msep }
+
+.large-hsep { display: inline-block ; width: $msep }
+
+
 ///////////////////////////////////////////////////////////////////////////////
 
 .tooltip {

@@ -8,6 +8,8 @@ data:
     - { field: conf-items, src: content/publications/conference, order: date }
     - { field: report-items, src: content/publications/report, order: date }
     - { field: talks, src: content/talks.yaml }
+    - { field: awards, src: content/awards.yaml }
+    - { field: service-items, src: content/service.yaml }
 ---
 
 $partial("templates/abstract.html")$
@@ -33,7 +35,12 @@ $partial("templates/abstract.html")$
         <h2>Selected Talks</h2>
         $partial("templates/cv/talks.html")$
     </section>
-    <section>
-        <!--<h2>Professional Service</h2>-->
+    <section id="awards">
+        <h2>Honors and Awards</h2>
+        $partial("templates/cv/awards.html")$
+    </section>
+    <section id-"service">
+        <h2>Professional Service</h2>
+        $partial("templates/cv/service.html")$
     </section>
 </div>
