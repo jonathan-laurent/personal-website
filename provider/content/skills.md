@@ -1,8 +1,7 @@
 #### Programming
 
-+ I am an experienced programmer in **OCaml** and **Haskell**.
-+ I also have some significant programming experience in
-**Python** (with *numpy* and *scipy*) and **C++**.
++ I am an experienced programmer in **OCaml**, **Haskell**, **Python** and **Julia**.
++ I also have some significant programming experience in **C++**.
 
 #### Languages
 

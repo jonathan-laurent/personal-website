@@ -10,12 +10,12 @@
     grid-template-columns: 1fr ;
     grid-row-gap: 0.8em ;
 
-    .date { 
+    .date {
         font-family: $title-font ;
         text-align: right ;
     }
 
-    a { text-decoration: none }
+    // a { text-decoration: none }
 
     .news-item {
         display: grid ;

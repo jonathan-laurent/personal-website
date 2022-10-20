@@ -1,18 +1,28 @@
+# - title: Building on AlphaZero
+#   duration: 40 minutes
+#   locations:
+#     - event: Julia group meeting
+#       date: 2020-08-08
+#       where: MIT
+
 - title: Causal Analysis of Rule-Based Models through Counterfactual Reasoning
-  slides: /pdf/slides/pop-fall-2017.key
+  slides: /pdf/slides/ai-lunch-2018.key
   duration: 45 minutes
   locations:
-    - event: SASB Workshop
-      where: New-York
-      date: 2017-08-29
-    - event: PL Lunch, Carnegie Mellon University
+    - event: AI seminar, Carnegie Mellon University
       where: Pittsburgh
-      date: 2017-09-29
-    - where: University of Alabama, Birmingham
-      date: 2017-09-17
+      date: 2018-11-20
     - event: Harvard PL Seminar
       where: Boston
       date: 2017-12-13
+    - where: University of Alabama, Birmingham
+      date: 2017-09-17
+    - event: PL Lunch, Carnegie Mellon University
+      where: Pittsburgh
+      date: 2017-09-29
+    - event: SASB Workshop
+      where: New-York
+      date: 2017-08-29
 
 
 - title: Uncovering Pathways in Biomolecular Interaction Networks

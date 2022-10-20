@@ -12,16 +12,17 @@
                 $endif$
                 $if(infos)$
                     <span>
-                        $markdown(infos)$
+                        $inline-markdown(infos)$
                     </span>
                 $endif$
-            </div>
-            <div class="cv-item-description">
+                <span class="xsmall-hsep"></span>
                 <span class="toggle button" onclick="toggle('abstract:$item-id$')">Abstract</span>
                 <a class="button" href="$file$">Paper</a>
                 $if(code)$
                     <a class="button" href="$code$">Code</a>
                 $endif$
+            </div>
+            <div class="cv-item-description">
                 <div id="abstract:$item-id$" class="hidden" style="display:none">
                     $body$
                 </div>

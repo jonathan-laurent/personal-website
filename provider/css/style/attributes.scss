@@ -30,11 +30,13 @@
 
 img.floatr {
     display: block ;
+    //margin-left: 3em ;
     float: right ;
 }
 
 img.floatl {
     display: block ;
+    //margin-right: 3em ;
     float: left ;
 }
 
@@ -42,9 +44,10 @@ img.ornemental {
     @include small-devices { display: none }
 }
 
-img.rmargin { margin-right: 2em }
-
-img.lmargin { margin-left: 3em }
+img.rmargin1 { margin-right: 1em }
+img.lmargin1 { margin-left: 1em }
+img.rmargin2 { margin-right: 2em }
+img.lmargin2 { margin-left: 2em }
 
 ///////////////////////////////////////////////////////////////////////////////
 

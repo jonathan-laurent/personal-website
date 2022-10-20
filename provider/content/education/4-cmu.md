@@ -12,5 +12,8 @@ to: Present
 + Performance Modeling and Design of Computer Systems (15-857)
 + Computational Type Theory (15-819)
 + Substructural Logics (15-816)
++ Computer Architecture (15-740)
++ Deep Reinforcement Learning and Control (10-703)
++ Provably Safe Robotics (16-883)
 
 :::

@@ -21,7 +21,7 @@ The main dependencies that are to be installed manually are
 In order to use some advanced markdown features, you may
 want to install the following additional dependencies:
 
-+ The `pygment` Python library.
++ The `pygments` Python library.
 + The `graphviz` package: the `dot` program should be in
   your `$PATH`.
 + The `diagrams` Haskell library: once installed, you must

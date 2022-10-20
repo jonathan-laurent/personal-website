@@ -57,7 +57,11 @@ a:hover {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-li { 
+ul {
+    overflow: hidden ;
+}
+
+li {
     list-style-type:square ;
     margin-left: 2em ;
     margin-top: 0.5em ;
@@ -69,7 +73,7 @@ li {
 .katex { font-size: 1em !important }
 
 .katex-display { margin: 0.8em 0 }
-  
+
 .katex-display .katex { font-size: 1em !important }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -94,7 +98,7 @@ code {
     padding: 0.2em 0.4em ;
 }
 
-pre code, .listing code { 
+pre code, .listing code {
     display: block ;
     @include block-spaces ;
 }
