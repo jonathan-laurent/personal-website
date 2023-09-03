@@ -1,4 +1,3 @@
-
 I am the lead developer of [**AlphaZero.jl**](https://github.com/jonathan-laurent/AlphaZero.jl):
 
 <a><img

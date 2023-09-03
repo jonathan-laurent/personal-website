@@ -83,16 +83,19 @@ def render_page(path: str, content: dict[str, object]) -> None:
         f.write(txt)
 
 
-def compile_content() -> dict[str, object]:
+def compile_content(dir: str) -> dict[str, object]:
     content: dict[str, object] = {}
-    for file in os.listdir(CONTENT_DIR):
-        name, ext = file.split(".")
-        if ext == "md":
-            with open(join(CONTENT_DIR, file)) as f:
-                html = markdown.markdown(f.read())
-                content[name] = html
-        elif ext == "yaml":
-            content[name] = yaml.safe_load(open(join(CONTENT_DIR, file)))
+    for file in os.listdir(dir):
+        if os.path.isdir(join(dir, file)):
+            compile_content(join(dir, file))
+        else:
+            name, ext = file.split(".")
+            if ext == "md":
+                with open(join(dir, file)) as f:
+                    html = markdown.markdown(f.read())
+                    content[name] = html
+            elif ext == "yaml":
+                content[name] = yaml.safe_load(open(join(dir, file)))
     return content
 
 
@@ -107,7 +110,7 @@ if __name__ == "__main__":
     copy_file("css/fonts.css")
     for dir in ["downloads", "fonts", "img", "pdf"]:
         copy_directory(dir)
-    content = compile_content()
+    content = compile_content(CONTENT_DIR)
     render_page("index.html", content)
     render_page("publications.html", content)
     serve()
