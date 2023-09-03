@@ -109,4 +109,5 @@ if __name__ == "__main__":
         copy_directory(dir)
     content = compile_content()
     render_page("index.html", content)
+    render_page("publications.html", content)
     serve()

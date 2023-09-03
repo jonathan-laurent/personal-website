@@ -17,7 +17,7 @@
             <h1><a href="/index.html">Jonathan Laurent</a></h1>
             <nav>
                 <a href="/cv.html">CV</a>
-                <a href="">Publications</a>
+                <a href="/publications.html">Publications</a>
                 <a href="https://github.com/jonathan-laurent">Github</a>
                 <a href="/index.html#contact">Contact</a>
             </nav>
@@ -28,11 +28,13 @@
 
         <div id="footspace"></div>
 
+        {% if show_footer %}
         <footer>
             <div class=inside>
                 <p> {{ footer }} </p>
             </div>
         </footer>
+        {% endif %}
 
         <!-- Toggle hidden elements -->
         <script>
