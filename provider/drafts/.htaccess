@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Password Protected Area"
-AuthUserFile /afs/cs.cmu.edu/user/jlauren1/www/.htpasswd
-Require valid-user

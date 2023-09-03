@@ -1,3 +1,0 @@
-ErrorDocument 404 /~jlaurent/404.html
-ErrorDocument 401 /~jlaurent/forbidden.html
-ErrorDocument 403 /~jlaurent/forbidden.html

@@ -1,5 +1,0 @@
-resolver: lts-10.5
-flags: {}
-packages:
-  - asciimath/
-  - '.'

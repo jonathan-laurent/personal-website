@@ -1,6 +1,0 @@
-digraph {
-	graph [ranksep=0.4];
-	node [fontname="CMU Typewriter Text", label="\N", fontsize=10];
-	edge [arrowhead=vee];
-	$body$
-}
