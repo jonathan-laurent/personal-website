@@ -1,4 +1,5 @@
-- title: "Learning to Find Proofs and Theorems by Learning to Refine Search Strategies: The Case of Loop Invariant Synthesis"
+- title: "Learning to Find Proofs and Theorems by Learning to Refine Search Strategies:"
+  subtitle: The Case of Loop Invariant Synthesis
   authors: Jonathan Laurent, André Platzer
   kind: conference
   venue: NeurIPS 2022
@@ -81,7 +82,6 @@
   date: 2016-05-16
 
 - title: Causal Analysis of Rule-Based Models of Signaling Pathways
-  subtitle: Master Thesis
   infos: Jonathan Laurent's Master Thesis
   kind: report
   venue: 2015

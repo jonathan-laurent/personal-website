@@ -3,20 +3,27 @@
         <div>
             <div class="publication-title cv-item-title">
                 {{ publication["title"] }}
+                {% if "subtitle" in publication %}
+                <br/> <i> {{ publication["subtitle"] }} </i>
+                {% endif %}
             </div>
             <div class="publication-infos cv-item-subtitle">
                 {% if "authors" in publication %}
-                    <span class="publication-authors">
-                        {{ publication["authors"] }}
-                    </span>
+                <span class="publication-authors">
+                    {{ publication["authors"] }}
+                </span>
                 {% endif %}
                 {% if "infos" in publication %}
-                    <span>
-                        {{ markdown(publication["infos"]) }}
-                    </span>
+                <span>
+                    {{ inline_markdown(publication["infos"]) }}
+                </span>
                 {% endif %}
                 <span class="xsmall-hsep"></span>
-                <span class="toggle button" onclick="toggle('abstract:{{ index }}')">Abstract</span>
+                {% if "abstract" in publication %}
+                <span class="toggle button" onclick="toggle('abstract:{{ index }}')">
+                    Abstract
+                </span>
+                {% endif %}
                 <a class="button" href="{{ publication['file'] }}">Paper</a>
                 {% if "code" in publication %}
                     <a class="button" href="{{ publication['code'] }}">Code</a>
