@@ -1,9 +1,21 @@
-# - title: Building on AlphaZero
-#   duration: 40 minutes
-#   locations:
-#     - event: Julia group meeting
-#       date: 2020-08-08
-#       where: MIT
+- title: Learning to Find Proofs and Theorems by Learning to Refine Search Strategies
+  duration: 45 minutes
+  slides: /pdf/slides/n2f-2022.key
+  locations:
+    - event: Google N2Formal Reading Group, Invited Talk
+      date: 2022-08-08
+
+- title: Building on AlphaZero with Julia
+  duration: 30 minutes
+  slides: /pdf/slides/juliacon-2021.key
+  video: https://www.youtube.com/watch?v=nbLmR0aDumo
+  locations:
+    - event: JuliaCon 2021, Long Talk
+      date: 2021-08-08
+    - event: Julia User Group
+      where: Munich
+      date: 2023-03-03
+
 
 - title: Causal Analysis of Rule-Based Models through Counterfactual Reasoning
   slides: /pdf/slides/ai-lunch-2018.key
