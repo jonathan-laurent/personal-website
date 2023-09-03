@@ -1,5 +1,5 @@
 - title: "Learning to Discover Proofs and Theorems Without Supervision"
-  infos: Thesis Proposal
+  infos: Jonathan Laurent, Thesis Proposal
   kind: report
   venue: 2022
   file: /pdf/reports/thesis-proposal.pdf
@@ -48,6 +48,7 @@
   venue: NeurIPS 2022
   file: /pdf/papers/neurips22.pdf
   poster: /pdf/posters/poster-neurips22.pdf
+  code: /downloads/neurips22-code.zip
   date: 2022-10-15
   abstract: >
     We propose a new approach to automated theorem proving where an AlphaZero- style agent
@@ -142,7 +143,7 @@
 
 
 - title: Causal Analysis of Rule-Based Models of Signaling Pathways
-  infos: Jonathan Laurent's Master Thesis
+  infos: Jonathan Laurent, Master Thesis
   kind: report
   venue: 2015
   file: /pdf/reports/causal-analysis.pdf
