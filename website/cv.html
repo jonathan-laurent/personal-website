@@ -42,6 +42,11 @@
 
   <section id="research">
     <h2>Research Experience</h2>
+    <div class="cv-section-body">
+      {% for item in research %}
+        {% include "large-item.html" %}
+      {% endfor %}
+    </div>
   </section>
 
 
@@ -50,6 +55,11 @@
   <section id="teaching">
     <h2>Teaching Experience</h2>
     Here is a copy of my <a href="pdf/teaching-statement.pdf">teaching statement</a>.
+    <div class="cv-section-body">
+      {% for item in teaching %}
+        {% include "large-item.html" %}
+      {% endfor %}
+    </div>
   </section>
 
 

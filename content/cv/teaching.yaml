@@ -1,6 +1,6 @@
 - title: Teaching Assistant for "Logical Foundations of Cyberphysical Systems"
-- when: Fall 2020
-- description: |
+  when: Fall 2020
+  description: |
     I was a Teaching Assistant for the the _Logical Foundations of Cyberphysical Systems_
     class taught by André Platzer at CMU. I created class material optimized for remote
     learning (due to the COVID pandemic) and taught weekly hybrid recitations. I was
@@ -44,8 +44,8 @@
 
 
 - title: Teaching Assistant for a Software Verification Class
-- when: Fall 2017
-- description: |
+  when: Fall 2017
+  description: |
     I was a Teaching Assistant for an introductory software verification class
     ([15-414](https://www.cs.cmu.edu/~15414/)), taught by Matt Fredrikson and André
     Plazer. In particular, I designed a set of five labs relying on the
@@ -71,8 +71,7 @@
     :::
 
 - title: Oral Examiner in Mathematics
-  from: 2015
-  to: 2016
+  when: 2015 -- 2016
   description: |
     I was an oral examiner in mathematics at Lycée Condorcet and then [Lycée
     Louis-Le-Grand](http://louislegrand.org/). Every week, I met with six freshmen during

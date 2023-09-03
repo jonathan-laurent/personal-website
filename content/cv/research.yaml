@@ -13,7 +13,7 @@
 - title: Research Internship at IRIF
   when: March -- August 2016
   id: irif-internship
-  abstract: >
+  description: >
     In the "[PPS](https://www.irif.fr/en/poles/pps/index)" team of the "[Research
     Institute on the Foundations of Computer Science](https://www.irif.fr//en/index)", I
     developped a tactic for the [Coq](https://coq.inria.fr/) proof assistant that
@@ -36,7 +36,7 @@
 
 - title: Summer Internship at NASA Langley Research Center
   when: June -- August 2014
-  abstract: >
+  description: >
     I spent three months at the NASA Langley Research Center, under the supervision of
     [Alwyn Goodloe](https://shemesh.larc.nasa.gov/people/aeg/). I developped the ["Copilot
     Theorem"](https://hackage.haskell.org/package/copilot-theorem) library, which enables

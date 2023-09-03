@@ -1,0 +1,17 @@
+<div class="cv-item" {% if "id" in item %} id="{{ item['id'] }}" {% endif %} >
+    <div class="with-date">
+        <div>
+            <div class="cv-item-title">
+                {{ item["title"] }}
+            </div>
+            <div class="cv-item-description">
+                {{ markdown(item["description"]) }}
+            </div>
+        </div>
+        <div class="date">
+            {% if "when" in item %}
+                {{ item["when"] }}
+            {% endif %}
+        </div>
+    </div>
+</div>
