@@ -1,10 +1,10 @@
 
-I am the lead developer of [AlphaZero.jl](https://github.com/jonathan-laurent/AlphaZero.jl):
+I am the lead developer of [**AlphaZero.jl**](https://github.com/jonathan-laurent/AlphaZero.jl):
 
-<img
+<a><img
   src="./img/alphazero-jl-logo-text-bw-light.png"
   width="18%"
-  class="floatr lmargin1"/>
+  class="floatr lmargin1"/><href="https://github.com/jonathan-laurent/AlphaZero.jl">
 
 + The philosophy of this project is to provide an implementation of
   [AlphaZero](https://arxiv.org/abs/1712.01815) that is simple enough to
@@ -20,18 +20,18 @@ I am the lead developer of [AlphaZero.jl](https://github.com/jonathan-laurent/Al
 
 I am also actively developing and maintaining the following programs for the [Kappa simulation platform](https://kappalanguage.org/):
 
-+ [KaTie](https://github.com/jonathan-laurent/KaTie):
++ [**KaTie**](https://github.com/jonathan-laurent/KaTie):
   a domain-specific language for analyzing Kappa simulation traces.
-+ The [Kappa Counterfactual
-  Resimulator](https://github.com/jonathan-laurent/kappa-counterfactuals):
++ [**Kappa Counterfactual
+  Resimulator**](https://github.com/jonathan-laurent/kappa-counterfactuals):
   a library to sample counterfactual traces in Kappa.
-+ [KaFlow](https://github.com/jonathan-laurent/KaFlow): a program to
++ [**KaFlow**](https://github.com/jonathan-laurent/KaFlow): a program to
   generate causal summaries of Kappa traces.
 
 <br/>
 
-Finally, I developed the ["Copilot
-Theorem"](https://hackage.haskell.org/package/copilot-theorem) package,
+Finally, I developed the [**Copilot
+Theorem**](https://hackage.haskell.org/package/copilot-theorem) package,
 which enables fully-automated verification of safety properties of
 real-time embedded programs written in the
 [Copilot](http://leepike.github.io/Copilot/) language.
