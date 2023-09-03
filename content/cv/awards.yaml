@@ -1,5 +1,5 @@
 - when: 2021
-  what: "**Nominated** for Carnegie Mellon University's **Allan Perlis Teaching Award**"
+  what: "**Nominated** for Carnegie Mellon University's **Allan Perlis Teaching Award**."
 - when: 2017
   what: Programming Languages Mentoring Workshop (PLMW) Scholarship.
   id: plmw

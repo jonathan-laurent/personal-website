@@ -35,6 +35,30 @@
     </div>
   </section>
 
+   <!-- HONORS AND AWARDS -->
+
+  <section id="service">
+    <h2>Honors and Awards</h2>
+    <div class="cv-section-body news">
+      {% for item in awards %}
+        {% include "dated-item.html" %}
+      {% endfor %}
+    </div>
+  </section>
+
+
+  <!-- SERVICE -->
+
+  <section id="service">
+    <h2>Professional Service</h2>
+    <div class="cv-section-body news">
+      {% for item in service %}
+        {% include "dated-item.html" %}
+      {% endfor %}
+    </div>
+  </section>
+
+
   <!-- SKILLS -->
 
   <section id="skills">
