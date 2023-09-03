@@ -7,7 +7,7 @@ html {
     font-size: $font-size ;
     font-family: $main-font ;
     color: $textcolor ;
-    background-color: $foot-bgcolor ;
+    background-color: $bgcolor ;
     line-height: $def-line-height ;
 }
 
@@ -50,7 +50,7 @@ header {
             margin-left: 1.2em ;
             margin-right: 0.0em ;
         }
-        
+
         a:hover {
             text-decoration: none ;
             @include smart-bold($textdark) ;
@@ -76,7 +76,7 @@ header {
 
     padding-top: 20px ;
     padding-bottom: 20px ;
-    
+
     p { text-align: justify } ;
     background-color: $abstract-bgcolor ;
     border-bottom: 1px solid $abstract-border ;

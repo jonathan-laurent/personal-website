@@ -18,7 +18,7 @@ $textdark:           lighten(black, 0%) ;
 $bgcolor:            white ;
 $abstract-bgcolor:   #DDDDDD ;
 $code-bgcolor:       #F5F5F5 ;
-$foot-bgcolor:       $bgcolor ; // $abstract-bgcolor ;
+$foot-bgcolor:       $abstract-bgcolor ; // $abstract-bgcolor ;
 $header-bgcolor:     lighten($abstract-bgcolor, 8%) ;
 
 $abstract-border:    darken($abstract-bgcolor, 10%) ;
