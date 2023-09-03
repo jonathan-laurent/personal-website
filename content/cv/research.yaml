@@ -1,0 +1,52 @@
+- title: PhD in Computer Science at Carnegie Mellon University
+  from: Fall 2016
+  to: Present
+  description: >
+    I am currently a PhD student in Computer Science at [Carnegie Mellon
+    University](https://www.csd.cs.cmu.edu/)). I have been developing techniques to
+    uncover the causal structure of simulation trajectories generated from rule-based
+    models of complex biochemical systems, in collaboration with the team of [Walter
+    Fontana](https://fontana.hms.harvard.edu/) at Harvard Medical School. From 2016 to
+    2018, I was advised by [Jean Yang](https://www.cs.cmu.edu/~jyang2/). I have been
+    advised by Professor [André Platzer](http://symbolaris.com/) since.
+
+
+- title: Research Internship at IRIF
+  from: March
+  to: August 2016
+  id: irif-internship
+  abstract: >
+    In the "[PPS](https://www.irif.fr/en/poles/pps/index)" team of the "[Research
+    Institute on the Foundations of Computer Science](https://www.irif.fr//en/index)", I
+    developped a tactic for the [Coq](https://coq.inria.fr/) proof assistant that
+    automatically suggests lemmas for proving the current goal. It relies on a statistical
+    model of lemma relevance, which I fitted on a large corpora of formalized mathematics
+    (the [CoRN](https://github.com/c-corn/corn) library).
+    [Report](/pdf/reports/colt.pdf){.button}
+    [Code](/downloads/colt-release.tar.gz){.button}
+
+
+- title: Research Internship at Harvard Medical School
+  from: March
+  to: August 2015
+  description:
+    In the team of Professor [Walter Fontana](https://fontana.hms.harvard.edu/), I
+    developed a formalism to capture the notion of a biological pathway, along with some
+    techniques to uncover pathways in networks of protein-protein interactions modelled
+    using the [Kappa](https://kappalanguage.org/) language.
+    [Report](/pdf/reports/causal-analysis.pdf){.button}
+
+
+- title: Summer Internship at NASA Langley Research Center
+  from: June
+  to: August 2014
+  abstract: >
+    I spent three months at the NASA Langley Research Center, under the supervision of
+    [Alwyn Goodloe](https://shemesh.larc.nasa.gov/people/aeg/). I developped the ["Copilot
+    Theorem"](https://hackage.haskell.org/package/copilot-theorem) library, which enables
+    fully-automated verification of safety properties of real-time embedded programs
+    written in the [Copilot](http://leepike.github.io/Copilot/) language.
+    [Paper](/pdf/papers/RV15.pdf){.button}
+    [Talk](http://nia-mediasite.nianet.org/NIAMediasite100/Play/b9a15957f7574756bb52f0ea6a4ca5471d){.button}
+    [Slides](pdf/slides/talk-nia.pdf){.button}
+    [Code](https://github.com/Copilot-Language/copilot-theorem){.button}
