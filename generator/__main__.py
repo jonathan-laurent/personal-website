@@ -87,7 +87,7 @@ def compile_content(dir: str) -> dict[str, object]:
     content: dict[str, object] = {}
     for file in os.listdir(dir):
         if os.path.isdir(join(dir, file)):
-            compile_content(join(dir, file))
+            content |= compile_content(join(dir, file))
         else:
             name, ext = file.split(".")
             if ext == "md":
