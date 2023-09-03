@@ -2,18 +2,18 @@
   location: Pittsburgh
   subtitle: PhD in Computer Science.
   when: 2017 -- Present
-  description: |
-    ::: { #cmu-coursework .hidden } :::
-
-    + Graduate Artificial Intelligence (15-780)
-    + Performance Modeling and Design of Computer Systems (15-857)
-    + Computational Type Theory (15-819)
-    + Substructural Logics (15-816)
-    + Computer Architecture (15-740)
-    + Deep Reinforcement Learning and Control (10-703)
-    + Provably Safe Robotics (16-883)
-
-    :::
+  description: ""
+  details:
+    - name: Coursework
+      id: cmu-coursework
+      content: >
+        + Graduate Artificial Intelligence (15-780)
+        + Performance Modeling and Design of Computer Systems (15-857)
+        + Computational Type Theory (15-819)
+        + Substructural Logics (15-816)
+        + Computer Architecture (15-740)
+        + Deep Reinforcement Learning and Control (10-703)
+        + Provably Safe Robotics (16-883)
 
 
 - institution: École Normale Supérieure de Cachan
@@ -21,25 +21,23 @@
   when: "2016"
   subtitle:
       MSc in Machine Learning, awarded with
-      [highest honors]{.tooltip title='Mention "très bien"'}.
+      highest honors (mention "très bien").
   description: |
     "[Master Vision et
     Apprentissage](http://math.ens-paris-saclay.fr/version-francaise/formations/master-mva/)",
-    department of mathematics. [Coursework]{.button toggle="mva-coursework"}
-
-    ::: { #mva-coursework .hidden } :::
-
-    + Probabilistic Graphical Models
-    + Convex Optimization
-    + Kernel Methods
-    + Theory of Statistical Learning
-    + Reinforcement Learning
-    + Spectral Graph Theory
-    + Modelling in Neurosciences
-    + Theory and Applications of Random Matrices
-
-    :::
-
+    department of mathematics.
+  details:
+    - name: Coursework
+      id: mva-coursework
+      content: >
+        + Probabilistic Graphical Models
+        + Convex Optimization
+        + Kernel Methods
+        + Theory of Statistical Learning
+        + Reinforcement Learning
+        + Spectral Graph Theory
+        + Modelling in Neurosciences
+        + Theory and Applications of Random Matrices
 
 
 - institution: École Normale Supérieure
@@ -49,30 +47,28 @@
   description: |
     "[Diplôme en Sciences de l'ENS, spécialité
     informatique](http://www.ens.fr/une-formation-d-exception/formations/le-diplome-ens)".
-    [Coursework]{.button toggle="ens-coursework"}
+  details:
+    - name: Coursework
+      id: ens-coursework
+      content: >
+        ### Undergraduate level
 
-    ::: { #ens-coursework .hidden } :::
+        + Logic and lambda-calculus
+        + Formal languages and automata
+        + Semantics and program verification
+        + Compiler design
+        + Algorithms
+        + Computer architecture
+        + Operating systems and computer networks
 
-    ### Undergraduate level
+        ### Graduate level
 
-    + Logic and lambda-calculus
-    + Formal languages and automata
-    + Semantics and program verification
-    + Compiler design
-    + Algorithms
-    + Computer architecture
-    + Operating systems and computer networks
-
-    ### Graduate level
-
-    + Category theory
-    + Advanced Complexity theory
-    + Information Theory
-    + Introduction to statistical learning
-    + Randomized algorithms
-    + Measure Theory (mathematics department)
-
-    :::
+        + Category theory
+        + Advanced Complexity theory
+        + Information Theory
+        + Introduction to statistical learning
+        + Randomized algorithms
+        + Measure Theory (mathematics department)
 
 
 - institution: Lycée Louis-Le-Grand
