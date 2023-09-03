@@ -36,8 +36,53 @@
     </div>
   </section>
 
+  <!-- PUBLICATIONS -->
+
   <section id="publications">
     {% include "publications-section.html" %}
+  </section>
+
+  <!-- TALKS -->
+
+  <section id="talks">
+    <h2>Selected Talks</h2>
+    <div class="cv-section-body">
+      {% for talk in talks %}
+        <div class="cv-item talk">
+            <div class="talk-title cv-item-title">
+                {{ talk["title"] }}
+            </div>
+            {% for loc in talk["locations"] %}
+                <div class="with-date">
+                    <div class="talk-infos cv-item-subtitle">
+                        {% if "event" in loc %}
+                          {% if "where" in loc %}
+                            {{ loc["event"] }},
+                          {% else %}
+                            {{ loc["event"] }}
+                          {% endif %}
+                        {% endif %}
+                        {% if "where" in loc %} {{ loc["where"] }}. {% endif %}
+                    </div>
+                    <div class="date">
+                        {{ loc["date"].strftime("%B %Y") }}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="cv-item-description">
+                {% if "slides" in talk %}
+                    <a class="button" href="{{ talk['slides'] }}">Slides</a>
+                {% endif %}
+                {% if "slides-pdf" in talk %}
+                    <a class="button" href="{{ talk['slides-pdf'] }}">Slides (PDF)</a>
+                {% endif %}
+                {% if "video" in talk %}
+                    <a class="button" href="{{ talk['video'] }}">Video</a>
+                {% endif %}
+            </div>
+        </div>
+      {% endfor %}
+  </div>
   </section>
 
   <!-- HONORS AND AWARDS -->
