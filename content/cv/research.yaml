@@ -1,6 +1,5 @@
 - title: PhD in Computer Science at Carnegie Mellon University
-  from: Fall 2016
-  to: Present
+  when: Fall 2016 -- Present
   description: >
     I am currently a PhD student in Computer Science at [Carnegie Mellon
     University](https://www.csd.cs.cmu.edu/)). I have been developing techniques to
@@ -12,8 +11,7 @@
 
 
 - title: Research Internship at IRIF
-  from: March
-  to: August 2016
+  when: March -- August 2016
   id: irif-internship
   abstract: >
     In the "[PPS](https://www.irif.fr/en/poles/pps/index)" team of the "[Research
@@ -27,8 +25,7 @@
 
 
 - title: Research Internship at Harvard Medical School
-  from: March
-  to: August 2015
+  when: March -- August 2015
   description:
     In the team of Professor [Walter Fontana](https://fontana.hms.harvard.edu/), I
     developed a formalism to capture the notion of a biological pathway, along with some
@@ -38,8 +35,7 @@
 
 
 - title: Summer Internship at NASA Langley Research Center
-  from: June
-  to: August 2014
+  when: June -- August 2014
   abstract: >
     I spent three months at the NASA Langley Research Center, under the supervision of
     [Alwyn Goodloe](https://shemesh.larc.nasa.gov/people/aeg/). I developped the ["Copilot
