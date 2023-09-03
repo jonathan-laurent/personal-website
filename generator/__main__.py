@@ -38,7 +38,9 @@ def compile_scss(source_path: str, *, load_path: str) -> None:
 
 
 def copy_directory(dir: str) -> None:
-    shutil.copytree(join(SOURCE_DIR, dir), join(GENERATED_DIR, dir))
+    shutil.copytree(
+        join(SOURCE_DIR, dir), join(GENERATED_DIR, dir), dirs_exist_ok=True
+    )
 
 
 def copy_file(path: str) -> None:
