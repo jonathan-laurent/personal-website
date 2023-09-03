@@ -1,0 +1,23 @@
+<h2>Publications</h2>
+
+{% set sections = [
+    ("Conference Papers", "conference"),
+    ("Workshop Papers", "workshop"),
+    ("Theses and Reports", "report")
+] %}
+
+{% for title, kind in sections %}
+<section>
+    <h3>{{ title }}</h3>
+    <div class="cv-section-body">
+        {% for publication in publications %}
+            {% if publication["kind"] == kind %}
+                {% with %}
+                    {% set publication_ref = "featured:"~loop.index %}
+                    {% include "publication.html" %}
+                {% endwith %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
