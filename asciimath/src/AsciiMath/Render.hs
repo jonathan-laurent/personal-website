@@ -4,7 +4,7 @@ module AsciiMath.Render (renderAst, renderText) where
 
 import AsciiMath.Ast
 
-import Text.PrettyPrint
+import Text.PrettyPrint hiding ((<>))
 import Data.Char hiding (Space)
 
 -------------------------------------------------------------------------------

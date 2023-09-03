@@ -15,9 +15,11 @@ data Expr =
   | Group Ast
   deriving (Show)
 
+instance Semigroup Ast where
+  (Ast xs) <> (Ast ys) = Ast (xs ++ ys)
+
 instance Monoid Ast where
   mempty = Ast []
-  (Ast xs) `mappend` (Ast ys) = Ast (xs ++ ys)
 
 -------------------------------------------------------------------------------
 

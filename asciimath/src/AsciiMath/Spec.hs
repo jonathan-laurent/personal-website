@@ -28,13 +28,15 @@ data Spec = Spec
   , binops     :: [(String, FunRef, Precedence)]
   } deriving (Show)
 
-instance Monoid Spec where
-  mempty = Spec { functions = [], delimiters = [], aliases = [], binops = [] }
-  s `mappend` s' = Spec
+instance Semigroup Spec where
+  s <> s' = Spec
     { functions  = functions s  ++ functions s',
       delimiters = delimiters s ++ delimiters s',
       aliases    = aliases s    ++ aliases s',
       binops     = binops s     ++ binops s' }
+
+instance Monoid Spec where
+  mempty = Spec { functions = [], delimiters = [], aliases = [], binops = [] }
 
 -------------------------------------------------------------------------------
 
@@ -98,7 +100,7 @@ readSpec str =
   case parse specParser "" str of
     Right spec -> spec
     Left _ -> error "Invalid math configuration file."
-    
+
 specFromFile :: FilePath -> IO Spec
 specFromFile f = handleError . parse specParser f <$> readFile f
   where handleError (Right spec) = spec
