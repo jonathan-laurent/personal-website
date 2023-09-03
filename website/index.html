@@ -30,10 +30,12 @@
         <h2>Selected Publications</h2>
         <div class="cv-section-body">
             {% for publication in publications %}
-                {% with %}
-                    {% set publication_ref = "featured:"~loop.index %}
-                    {% include "publication.html" %}
-                {% endwith %}
+                {% if publication["featured"] %}
+                    {% with %}
+                        {% set publication_ref = "featured:"~loop.index %}
+                        {% include "publication.html" %}
+                    {% endwith %}
+                {% endif %}
             {% endfor %}
             <div class="small-sep"></div>
             <p>

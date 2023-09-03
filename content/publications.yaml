@@ -2,6 +2,7 @@
   subtitle: The Case of Loop Invariant Synthesis
   authors: Jonathan Laurent, André Platzer
   kind: conference
+  featured: yes
   venue: NeurIPS 2022
   file: /pdf/papers/neurips22.pdf
   date: 2022-10-15
@@ -35,6 +36,7 @@
 - title: Counterfactual Resimulation for Causal Analysis of Rule-Based Models
   authors: Jonathan Laurent, Jean Yang, Walter Fontana
   kind: conference
+  featured: yes
   venue: IJCAI 2018
   file: /pdf/papers/ijcai18.pdf
   date: 2018-04-16
