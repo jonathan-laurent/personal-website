@@ -2,7 +2,7 @@ I am the lead developer of [**AlphaZero.jl**](https://github.com/jonathan-lauren
 
 <a><img
   src="./img/alphazero-jl-logo-text-bw-light.png"
-  width="18%"
+  width="15%"
   class="floatr lmargin2"/><href="https://github.com/jonathan-laurent/AlphaZero.jl">
 
 + The philosophy of this project is to provide an implementation of
