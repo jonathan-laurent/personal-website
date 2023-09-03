@@ -20,7 +20,7 @@
                 {% endif %}
                 <span class="xsmall-hsep"></span>
                 {% if "abstract" in publication %}
-                <span class="toggle button" onclick="toggle('abstract:{{ index }}')">
+                <span class="toggle button" onclick="toggle('abstract:{{ publication_ref }}')">
                     Abstract
                 </span>
                 {% endif %}
@@ -31,7 +31,7 @@
             </div>
             {% if "abstract" in publication %}
             <div class="cv-item-description">
-                <div id="abstract:{{ index }}" class="hidden" style="display:none">
+                <div id="abstract:{{ publication_ref }}" class="hidden" style="display:none">
                     {{ publication["abstract"] }}
                 </div>
             </div>

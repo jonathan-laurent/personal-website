@@ -31,7 +31,7 @@
         <div class="cv-section-body">
             {% for publication in publications %}
                 {% with %}
-                    {% set index = loop.index %}
+                    {% set publication_ref = "featured:"~loop.index %}
                     {% include "publication.html" %}
                 {% endwith %}
             {% endfor %}
