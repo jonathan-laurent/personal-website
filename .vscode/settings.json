@@ -1,0 +1,19 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.formatOnType": true,
+        "editor.rulers": [80],
+        "rewrap.wrappingColumn": 72,
+    },
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "isort.args": [
+        "--settings-path=${workspaceFolder}/pyproject.toml",
+    ],
+    "yaml.schemaStore.enable": false
+}

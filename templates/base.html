@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/fonts.css" type="text/css">
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
+        <!--<link rel="stylesheet" href="/css/pygment.css" type="text/css">-->
+
+        <meta name="author" content="Jonathan Laurent">
+        <title>{% block title %}{{ title }}{% endblock title %}</title>
+    </head>
+    <body>
+
+        <header>
+        <div class=inside>
+            <h1><a href="/index.html">Jonathan Laurent</a></h1>
+            <nav>
+                <a href="/cv.html">CV</a>
+            </nav>
+        </div>
+        </header>
+
+        {% block body %}{% endblock body %}
+
+        <div id="footspace"></div>
+
+        <!-- Toggle hidden elements -->
+        <script>
+            function toggle(id) {
+                var x = document.getElementById(id);
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+
+    </body>
+</html>

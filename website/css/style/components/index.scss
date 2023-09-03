@@ -1,0 +1,26 @@
+///////////////////////////////////////////////////////////////////////////////
+// Index Page
+///////////////////////////////////////////////////////////////////////////////
+
+#main section { margin-bottom: $sec-margin }
+
+.news {
+
+    display: grid ;
+    grid-template-columns: 1fr ;
+    grid-row-gap: 0.8em ;
+
+    .date {
+        font-family: $title-font ;
+        text-align: right ;
+    }
+
+    // a { text-decoration: none }
+
+    .news-item {
+        display: grid ;
+        // align-items: center ;
+        grid-template-columns: auto 10em ; //max-content
+        grid-column-gap: 1.5em ;
+    }
+}

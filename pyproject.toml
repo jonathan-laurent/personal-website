@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "generator"
+version = "0.1.0"
+description = ""
+authors = ["jonathan-laurent <jonathan.laurent@cs.cmu.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fire = "^0.5.0"
+jinja2 = "^3.1.2"
+markdown = "^3.4.4"
+pyyaml = "^6.0.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+isort = "^5.12.0"
+ipython = "^8.13.2"
+
+[tool.isort]
+profile = "black"
+lines_after_imports = 2
+
+[tool.black]
+line-length = 79
+
+[tool.pyright]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

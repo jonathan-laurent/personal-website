@@ -1,0 +1,124 @@
+///////////////////////////////////////////////////////////////////////////////
+// Personal Website Stylesheet
+// Jonathan Laurent (2018)
+///////////////////////////////////////////////////////////////////////////////
+
+html {
+    font-size: $font-size ;
+    font-family: $main-font ;
+    color: $textcolor ;
+    background-color: $foot-bgcolor ;
+    line-height: $def-line-height ;
+}
+
+.inside {
+    width: $page-width ;
+    max-width: 90% ;
+    margin: auto ;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// HEADER
+///////////////////////////////////////////////////////////////////////////////
+
+header {
+
+    padding-top: 0.7em ;
+    padding-bottom: 0.7em ;
+
+    background-color: $header-bgcolor ;
+    @if variable-exists(header-border) {
+        border-bottom: 1px solid $header-border
+    }
+
+    .inside {
+        display: grid ;
+        grid-template-columns: auto max-content ;
+        align-items: center ;
+    }
+
+    h1 { font-size: 1.5em ; margin: $ssep 0 }
+    h1 a { text-decoration: none }
+    h1 a:hover { text-shadow: none }
+
+    nav {
+        display: block ;
+        text-align: right ;
+        a {
+            text-decoration: none ;
+            display: inline-block ;
+            margin-left: 1.2em ;
+            margin-right: 0.0em ;
+        }
+        
+        a:hover {
+            text-decoration: none ;
+            @include smart-bold($textdark) ;
+        }
+    }
+}
+
+@include small-devices {
+    header .inside {
+        grid-template-columns: 1fr ;
+    }
+    header nav {
+        text-align: left ;
+        a { margin-left: 0px }
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// ABSTRACT
+///////////////////////////////////////////////////////////////////////////////
+
+#abstract {
+
+    padding-top: 20px ;
+    padding-bottom: 20px ;
+    
+    p { text-align: justify } ;
+    background-color: $abstract-bgcolor ;
+    border-bottom: 1px solid $abstract-border ;
+    @if not variable-exists(header-border) {
+        border-top: 1px solid $abstract-border ;
+    }
+
+    a { text-decoration-color: $link-lcolor-dark }
+
+    p, ul { margin-bottom: 0.7em }
+
+    code {
+        background-color: $abstract-bgcolor ;
+    }
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// MAIN
+///////////////////////////////////////////////////////////////////////////////
+
+#main {
+    margin-top: $main-top-margin ;
+    background-color: $bgcolor ;
+    article {
+        p { text-align: justify }
+        p, ul { margin-bottom: 0.7em }
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// FOOTER
+///////////////////////////////////////////////////////////////////////////////
+
+#footspace {
+    height: 10em ;
+}
+
+footer {
+    padding-top: 20px ;
+    padding-bottom: 20px ;
+    background-color: $foot-bgcolor ;
+    border-top: 1px solid $foot-border ;
+    p { text-align: right }
+}
