@@ -1,0 +1,13 @@
+<span class="xsmall-hsep"></span>
+
+{% for d in details %}
+    <span class="toggle button" onclick="toggle('{{ d['id'] }}')">
+        {{ d['name']}}
+    </span>
+{% endfor %}
+
+{% for d in details %}
+    <div id="{{ d['id'] }}" class="hidden" style="display: none;">
+        {{ markdown(d['content']) }}
+    </div>
+{% endfor %}

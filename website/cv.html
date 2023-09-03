@@ -20,7 +20,13 @@
                 <span class="edu-location">{{ item["location"] }}</span>
               </div>
               <div class="cv-item-subtitle">{{ markdown(item["subtitle"]) }}</div>
-              <div class="cv-item-description">{{ markdown(item["description"]) }}</div>
+              <div class="cv-item-description">
+                {{ inline_markdown(item["description"]) }}
+                {% with %}
+                  {% set details = item["details"] %}
+                  {% include "details.html" %}
+                {% endwith %}
+              </div>
             </div>
             <div class="date">{{ markdown(item["when"]) }}</div>
           </div>
