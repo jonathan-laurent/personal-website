@@ -28,11 +28,14 @@
                 {% if "code" in publication %}
                     <a class="button" href="{{ publication['code'] }}">Code</a>
                 {% endif %}
+                {% if "poster" in publication %}
+                    <a class="button" href="{{ publication['poster'] }}">Poster</a>
+                {% endif %}
             </div>
             {% if "abstract" in publication %}
             <div class="cv-item-description">
                 <div id="abstract:{{ publication_ref }}" class="hidden" style="display:none">
-                    {{ publication["abstract"] }}
+                    {{ markdown(publication["abstract"]) }}
                 </div>
             </div>
             {% endif %}

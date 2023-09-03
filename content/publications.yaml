@@ -1,3 +1,45 @@
+- title: "Learning to Discover Proofs and Theorems Without Supervision"
+  infos: Thesis Proposal
+  kind: report
+  venue: 2022
+  file: /pdf/reports/thesis-proposal.pdf
+  abstract: |
+    Interactive theorem provers have been successfully used to formally verify safety-
+    critical software. However, doing so requires a significant level of resources and
+    expertise. A promising approach to scaling-up theorem proving and formal verification
+    is to augment tactic-based interactive theorem provers with machine- learning for
+    automation. The dominant approach in this area is to train a neural network to imitate
+    human experts. However, this approach is limited by the acute scarcity of
+    representative proofs.
+
+    An alternative approach inspired by the success of AlphaZero is to use reinforce- ment
+    learning instead and train an agent to interact with a theorem prover via trial and
+    error. Unfortunately, existing tactic-based interfaces offer unbounded action spaces
+    that are hardly amenable to random exploration. Such interfaces are optimized for
+    formalizing human insights in a concise way but often fail to define a tractable
+    search space for deriving those insights in the first place. Moreover, although
+    reinforcement learning alleviates the need for human proofs, the problem remains of
+    providing theorem proving tasks of suitable relevance, diversity and difficulty for
+    the learner.
+
+    In this thesis, we propose a novel framework for theorem proving where a teacher agent
+    is trained to generate interesting and relevant tasks while a solver agent is co-
+    trained to solve them. Both agents can leverage domain-specific expert strategies in
+    the form of nondeterministic programs. Choice points in those programs are resolved by
+    neural network oracles that are trained via reinforcement learning in a
+    self-supervised fashion. This allows leveraging minimal amounts of domain knowledge to
+    tackle problems for which training data is entirely unavailable and hard to
+    synthesize.
+
+    This work aims to establish conceptual and engineering foundations for such a
+    framework. We introduce novel curriculum learning algorithms and build a new theorem
+    prover based on neural-guided nondeterministic programming. We introduce standard
+    abstractions and design principles for writing teacher and solver strategies. Finally,
+    we plan to evaluate our theorem prover on a collection of tasks such as loop invariant
+    synthesis, deductive program synthesis, arithmetic inequality proving and safe robot
+    planning.
+
+
 - title: "Learning to Find Proofs and Theorems by Learning to Refine Search Strategies:"
   subtitle: The Case of Loop Invariant Synthesis
   authors: Jonathan Laurent, André Platzer
@@ -5,6 +47,7 @@
   featured: yes
   venue: NeurIPS 2022
   file: /pdf/papers/neurips22.pdf
+  poster: /pdf/posters/poster-neurips22.pdf
   date: 2022-10-15
   abstract: >
     We propose a new approach to automated theorem proving where an AlphaZero- style agent
@@ -15,6 +58,18 @@
     unavailable or hard to synthesize. As a specific illustration, we consider loop
     invariant synthesis for imperative programs and use neural networks to refine both the
     teacher and solver strategies.
+
+
+- title: Designing a Theorem Prover for Reinforcement Learning and Neural Guidance
+  infos: Jonathan Laurent and André Platzer, Talk Proposal
+  kind: workshop
+  file: /pdf/papers/aitp21.pdf
+  venue: AITP 2021
+  abstract: >
+    We discuss the design of Looprl, an experimental interactive theorem prover for loop
+    invariant synthesis that has been optimized from the ground-up for a clean integration
+    of theorem proving with reinforcement learning and neural guidance.
+
 
 - title: A Trace Query Language for Kappa
   authors: Jonathan Laurent, Hector Medina Abarca, Pierre Boutillier, Jean Yang, Walter Fontana
@@ -32,6 +87,7 @@
     semantics and implementation for the Kappa language. Finally, we provide a detailed
     use case where we analyze the dynamics of beta-catenin degradation in Wnt signaling
     from an agent-centric perspective.
+
 
 - title: Counterfactual Resimulation for Causal Analysis of Rule-Based Models
   authors: Jonathan Laurent, Jean Yang, Walter Fontana
@@ -75,6 +131,7 @@
     narratives by (i) being more sensitive to kinetics and (ii) providing a proper account
     of inhibition between molecular events.
 
+
 - title: Suggesting Relevant Lemmas by Learning From Succesful Proofs
   infos: Jonathan Laurent, [Internship](#irif-internship) Report
   kind: report
@@ -82,6 +139,7 @@
   file: /pdf/reports/colt.pdf
   code: /downloads/colt-release.tar.gz
   date: 2016-05-16
+
 
 - title: Causal Analysis of Rule-Based Models of Signaling Pathways
   infos: Jonathan Laurent's Master Thesis
@@ -93,6 +151,7 @@
     Rule-based modeling languages such as Kappa can be used to write mechanistic models of
     complex reaction systems. Such models consist in collections of stochastic
     graph-rewrite rules that are equipped with different firing rates.
+
 
 - title: Assuring The Guardians
   authors: Jonathan Laurent, Alwyn Goodloe, Lee Pike
