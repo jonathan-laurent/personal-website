@@ -3,7 +3,7 @@ I am the lead developer of [**AlphaZero.jl**](https://github.com/jonathan-lauren
 <a><img
   src="./img/alphazero-jl-logo-text-bw-light.png"
   width="18%"
-  class="floatr lmargin1"/><href="https://github.com/jonathan-laurent/AlphaZero.jl">
+  class="floatr lmargin2"/><href="https://github.com/jonathan-laurent/AlphaZero.jl">
 
 + The philosophy of this project is to provide an implementation of
   [AlphaZero](https://arxiv.org/abs/1712.01815) that is simple enough to
@@ -13,7 +13,6 @@ I am the lead developer of [**AlphaZero.jl**](https://github.com/jonathan-lauren
 + AlphaZero.jl gathered 1200 stars on Github and received two rounds of
   funding from the [_Google Summer of
   Code_](https://summerofcode.withgoogle.com/) program.
-
 
 <br/>
 
