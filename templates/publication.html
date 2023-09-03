@@ -1,0 +1,37 @@
+<div class="cv-item publication">
+    <div class="with-date">
+        <div>
+            <div class="publication-title cv-item-title">
+                {{ publication["title"] }}
+            </div>
+<!--
+            <div class="publication-infos cv-item-subtitle">
+                $if(authors)$
+                    <span class="publication-authors">
+                        $authors$
+                    </span>
+                $endif$
+                $if(infos)$
+                    <span>
+                        $inline-markdown(infos)$
+                    </span>
+                $endif$
+                <span class="xsmall-hsep"></span>
+                <span class="toggle button" onclick="toggle('abstract:$item-id$')">Abstract</span>
+                <a class="button" href="$file$">Paper</a>
+                $if(code)$
+                    <a class="button" href="$code$">Code</a>
+                $endif$
+            </div>
+            <div class="cv-item-description">
+                <div id="abstract:$item-id$" class="hidden" style="display:none">
+                    $body$
+                </div>
+            </div>
+             -->
+        </div>
+        <div class="venue">
+            {{ publication["venue"] }}
+        </div>
+    </div>
+</div>

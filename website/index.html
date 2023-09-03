@@ -24,12 +24,14 @@
         </div>
     </section>
 
-    <!-- <section>
-        <h2>Featured Publications</h2>
+    <!-- SELECTED PUBLICATIONS SECTION -->
+
+    <section>
+        <h2>Selected Publications</h2>
         <div class="cv-section-body">
-            $for(featured-publications)$
-                $partial("templates/cv/generic/publication.html")$
-            $endfor$
+            {% for publication in publications %}
+                {% include "publication.html" %}
+            {% endfor %}
             <div class="small-sep"></div>
             <p>
                 <i>
@@ -40,6 +42,7 @@
         </div>
     </section>
 
+    <!---
     <section id="software">
         <h2>Software</h2>
         <div class="indented">
