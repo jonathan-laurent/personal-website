@@ -1,3 +1,36 @@
+- title: "Learning to Find Proofs and Theorems by Learning to Refine Search Strategies: The Case of Loop Invariant Synthesis"
+  authors: Jonathan Laurent, André Platzer
+  kind: conference
+  venue: NeurIPS 2022
+  file: /pdf/papers/neurips22.pdf
+  date: 2022-10-15
+  abstract: >
+    We propose a new approach to automated theorem proving where an AlphaZero- style agent
+    is self-training to refine a generic high-level expert strategy expressed as a
+    nondeterministic program. An analogous teacher agent is self-training to generate
+    tasks of suitable relevance and difficulty for the learner. This allows leveraging
+    minimal amounts of domain knowledge to tackle problems for which training data is
+    unavailable or hard to synthesize. As a specific illustration, we consider loop
+    invariant synthesis for imperative programs and use neural networks to refine both the
+    teacher and solver strategies.
+
+- title: A Trace Query Language for Kappa
+  authors: Jonathan Laurent, Hector Medina Abarca, Pierre Boutillier, Jean Yang, Walter Fontana
+  kind: conference
+  venue: CMSB 2018
+  file: /pdf/papers/cmsb18.pdf
+  date: 2018-05-16
+  abstract: >
+    In this paper, we introduce a unified approach for querying simulation traces of
+    rule-based models about the statistical behavior of individual agents. In our
+    approach, a query consists in a trace pattern along with an expression that depends on
+    the variables captured by this pattern. On a given trace, it evaluates to the multiset
+    of all values of the expression for every possible matching of the pattern. We
+    illustrate our proposed query language on a simple example, and then discuss its
+    semantics and implementation for the Kappa language. Finally, we provide a detailed
+    use case where we analyze the dynamics of beta-catenin degradation in Wnt signaling
+    from an agent-centric perspective.
+
 - title: Counterfactual Resimulation for Causal Analysis of Rule-Based Models
   authors: Jonathan Laurent, Jean Yang, Walter Fontana
   kind: conference
@@ -17,6 +50,47 @@
     factual trace as a given intervention permits them to be. We then show how
     counterfactual dependencies give rise to explanations in terms of relations of
     enablement and prevention between events.
+
+
+- title: Causal Analysis of Rule-Based Models by Counterfactual Reasoning
+  authors: Jonathan Laurent, Jean Yang, Walter Fontana
+  kind: workshop
+  venue: SASB 2017
+  file: /pdf/papers/sasb17.pdf
+  date: 2017-06-16
+  abstract: >
+    Rule-based modeling languages such as Kappa can be used to write mechanistic models of
+    complex biochemical systems. Some techniques have been proposed to analyze the causal
+    structure of such models, ideally providing a way to uncover signalling pathways from
+    networks of low level protein-protein interactions. These methods take advantage of
+    rule structure to (i) slice simulation traces into minimal subsets of events that are
+    sufficient to replicate a phenomenon of interest and (ii) highlight direct causal
+    influences between non-concurrent events.
+
+    We propose a different but complementary approach to causal analysis that is based on
+    counterfactual reasoning. We argue that our approach can provide better causal
+    narratives by (i) being more sensitive to kinetics and (ii) providing a proper account
+    of inhibition between molecular events.
+
+- title: Suggesting Relevant Lemmas by Learning From Succesful Proofs
+  infos: Jonathan Laurent, [Internship](#irif-internship) Report
+  kind: report
+  venue: 2016
+  file: /pdf/reports/colt.pdf
+  code: /downloads/colt-release.tar.gz
+  date: 2016-05-16
+
+- title: Causal Analysis of Rule-Based Models of Signaling Pathways
+  subtitle: Master Thesis
+  infos: Jonathan Laurent's Master Thesis
+  kind: report
+  venue: 2015
+  file: /pdf/reports/causal-analysis.pdf
+  date: 2015-05-16
+  abstract: >
+    Rule-based modeling languages such as Kappa can be used to write mechanistic models of
+    complex reaction systems. Such models consist in collections of stochastic
+    graph-rewrite rules that are equipped with different firing rates.
 
 - title: Assuring The Guardians
   authors: Jonathan Laurent, Alwyn Goodloe, Lee Pike
