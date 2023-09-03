@@ -1,8 +1,7 @@
 - institution: Carnegie Mellon University
   location: Pittsburgh
   subtitle: PhD in Computer Science.
-  from: 2017
-  to: Present
+  when: 2017 -- Present
   description: |
     ::: { #cmu-coursework .hidden } :::
 
@@ -19,7 +18,7 @@
 
 - institution: École Normale Supérieure de Cachan
   location: Cachan
-  when: 2016
+  when: "2016"
   subtitle:
       MSc in Machine Learning, awarded with
       [highest honors]{.tooltip title='Mention "très bien"'}.
@@ -45,8 +44,7 @@
 
 - institution: École Normale Supérieure
   location: Paris
-  from: 2014
-  to: 2016
+  when: 2014 -- 2016
   subtitle: BSc and MSc in Computer Science.
   description: |
     "[Diplôme en Sciences de l'ENS, spécialité
@@ -80,9 +78,8 @@
 - institution: Lycée Louis-Le-Grand
   subtitle: Classes Préparatoires aux Grandes Écoles (MPSI-MP*)
   location: Paris
-  from: 2011
-  to: 2013
-  description: |
+  when: 2011 -- 2013
+  description: >
     Preparatory courses to nationwide competitive exams in mathematics (major), physics
     and computer science. Admitted to the École Normale Supérieure in computer science,
     ranked 11th.

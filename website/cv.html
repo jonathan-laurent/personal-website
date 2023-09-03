@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Jonathan Laurent - CV{% endblock %}
+{% block body %}
+
+{% include "abstract.html" %}
+
+<div id=main class="cv inside">
+
+  <!-- EDUCATION SECTION -->
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="cv-section-body">
+      {% for item in education %}
+        <div class="cv-item">
+          <div class="with-date">
+            <div>
+              <div class="cv-item-title">
+                <span class="edu-institution">{{ item["institution"] }},</span>
+                <span class="edu-location">{{ item["location"] }}</span>
+              </div>
+            <div class="cv-item-subtitle">{{ markdown(item["subtitle"]) }}</div>
+            <div class="cv-item-description">{{ markdown(item["description"]) }}</div>
+          </div>
+          <div class="date">{{ markdown(item["when"]) }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+</div>
+
+{% endblock %}

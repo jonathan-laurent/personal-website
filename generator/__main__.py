@@ -113,4 +113,5 @@ if __name__ == "__main__":
     content = compile_content(CONTENT_DIR)
     render_page("index.html", content)
     render_page("publications.html", content)
+    render_page("cv.html", content)
     serve()
