@@ -3,6 +3,7 @@ import shutil
 import subprocess
 from os.path import join
 
+import fire
 import jinja2
 import markdown
 import yaml
@@ -93,13 +94,22 @@ def serve() -> None:
     )
 
 
+class Generator:
+    def build(self) -> None:
+        compile_scss("css/style.scss", load_path="css/style")
+        copy_file("css/fonts.css")
+        for dir in ["downloads", "fonts", "img", "pdf"]:
+            copy_directory(dir)
+        content = compile_content(CONTENT_DIR)
+        render_page("index.html", content)
+        render_page("publications.html", content)
+        render_page("cv.html", content)
+        render_page("404.html", content)
+
+    def serve(self) -> None:
+        self.build()
+        serve()
+
+
 if __name__ == "__main__":
-    compile_scss("css/style.scss", load_path="css/style")
-    copy_file("css/fonts.css")
-    for dir in ["downloads", "fonts", "img", "pdf"]:
-        copy_directory(dir)
-    content = compile_content(CONTENT_DIR)
-    render_page("index.html", content)
-    render_page("publications.html", content)
-    render_page("cv.html", content)
-    serve()
+    fire.Fire(Generator)
