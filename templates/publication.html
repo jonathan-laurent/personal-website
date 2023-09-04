@@ -34,7 +34,11 @@
             </div>
             {% if "abstract" in publication %}
             <div class="cv-item-description">
-                <div id="abstract:{{ publication_ref }}" class="hidden" style="display:none">
+                <div
+                    id="abstract:{{ publication_ref }}"
+                    class="hidden"
+                    style="display:{% if abstract_unrolled %}block{% else %}none{% endif %};"
+                >
                     {{ markdown(publication["abstract"]) }}
                 </div>
             </div>
