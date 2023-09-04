@@ -47,6 +47,8 @@
   featured: yes
   venue: NeurIPS 2022
   file: /pdf/papers/neurips22.pdf
+  thumbnail: looprl-diagram-bw.png
+  thumbnail-size: 20%
   poster: /pdf/posters/poster-neurips22.pdf
   code: /downloads/neurips22-code.zip
   date: 2022-10-15
@@ -95,6 +97,8 @@
   kind: conference
   featured: yes
   venue: IJCAI 2018
+  thumbnail: inhibition-bw.png
+  thumbnail-size: 20%
   file: /pdf/papers/ijcai18.pdf
   date: 2018-04-16
   abstract: >

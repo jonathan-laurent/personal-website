@@ -15,6 +15,7 @@ SOURCE_DIR = "website"
 GENERATED_DIR = "generated"
 TEMPLATES_DIR = "templates"
 CONTENT_DIR = "content"
+IMAGE_FOLDER = "img"
 
 
 def replace_extension(path: str, new_extension: str) -> str:
@@ -22,6 +23,15 @@ def replace_extension(path: str, new_extension: str) -> str:
     Replace the extension of a file with a new one.
     """
     return ".".join(path.split(".")[:-1]) + "." + new_extension
+
+
+def add_suffix(path: str, suffix: str) -> str:
+    """
+    Add a suffix to the name of a file.
+    """
+    parts = path.split(".")
+    parts[-2] += suffix
+    return ".".join(parts)
 
 
 def compile_scss(source_path: str, *, load_path: str) -> None:
@@ -94,6 +104,19 @@ def serve() -> None:
     )
 
 
+def convert_image(name: str) -> None:
+    original = join(SOURCE_DIR, IMAGE_FOLDER, name)
+    bw_version = join(SOURCE_DIR, IMAGE_FOLDER, add_suffix(name, "-bw"))
+    """
+    Load the image with PIL and convert it in grayscale.
+    """
+    from PIL import Image
+
+    with Image.open(original) as img:
+        grayscale_img = img.convert("L")
+        grayscale_img.save(bw_version)
+
+
 class Generator:
     def build(self) -> None:
         compile_scss("css/style.scss", load_path="css/style")
@@ -109,6 +132,10 @@ class Generator:
     def serve(self) -> None:
         self.build()
         serve()
+
+    def bw(self, *imgs: str) -> None:
+        for img in imgs:
+            convert_image(img)
 
 
 if __name__ == "__main__":
