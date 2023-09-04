@@ -48,7 +48,9 @@
   venue: NeurIPS 2022
   file: /pdf/papers/neurips22.pdf
   thumbnail: looprl-diagram-bw.png
-  thumbnail-size: 20%
+  thumbnail-size: 45%
+  thumbnail-style: >
+    float: right; margin: 0.5em 0.5em 0.6em 1.5em
   poster: /pdf/posters/poster-neurips22.pdf
   code: /downloads/neurips22-code.zip
   date: 2022-10-15
@@ -99,6 +101,8 @@
   venue: IJCAI 2018
   thumbnail: inhibition-bw.png
   thumbnail-size: 20%
+  thumbnail-style: >
+    float: left; margin: 0.5em 1.5em 1.0em 0.5em
   file: /pdf/papers/ijcai18.pdf
   date: 2018-04-16
   abstract: >

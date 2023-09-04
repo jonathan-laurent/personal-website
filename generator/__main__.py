@@ -113,7 +113,7 @@ def convert_image(name: str) -> None:
     from PIL import Image
 
     with Image.open(original) as img:
-        grayscale_img = img.convert("L")
+        grayscale_img = img.convert("LA").convert("RGBA")
         grayscale_img.save(bw_version)
 
 

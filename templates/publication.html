@@ -37,8 +37,14 @@
                 <div
                     id="abstract:{{ publication_ref }}"
                     class="hidden"
-                    style="display:{% if abstract_unrolled %}block{% else %}none{% endif %};"
-                >
+                    style="display:{% if abstract_unrolled %}block{% else %}none{% endif %};">
+                    {% if "thumbnail" in publication %}
+                        <img
+                            src="/img/thumbnails/{{ publication['thumbnail'] }}"
+                            width="{{ publication['thumbnail-size'] }}"
+                            class="publication-thumbnail"
+                            {% if 'thumbnail-style' in publication %}style="{{ publication['thumbnail-style'] }}"{% endif %} />
+                    {% endif %}
                     {{ markdown(publication["abstract"]) }}
                 </div>
             </div>

@@ -49,6 +49,9 @@ img.lmargin1 { margin-left: 1em }
 img.rmargin2 { margin-right: 2em }
 img.lmargin2 { margin-left: 2em }
 
+// So that the user can make it float on the left or on the right
+img.publication-thumbnail { display: block }
+
 ///////////////////////////////////////////////////////////////////////////////
 
 .indented { margin-left: $indent }
