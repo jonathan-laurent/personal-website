@@ -30,6 +30,10 @@
     h3:first-child { margin-top: 0.2em } ;
 }
 
+.hidden-nobg {
+    background-color: transparent !important;
+}
+
 .cv-subsection {
     margin-bottom: 2em ;
     h3 {
