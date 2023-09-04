@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import subprocess
 from os.path import join
@@ -78,6 +79,8 @@ def render_page(path: str, content: dict[str, object]) -> None:
         inline_markdown=md.no_p_markdown,
         **content,
     )
+    txt = re.sub(r'href="/', r'href="./', txt)
+    txt = re.sub(r'src="/', r'src="./', txt)
     with open(join(GENERATED_DIR, path), "w") as f:
         f.write(txt)
 
@@ -121,6 +124,7 @@ class Generator:
     def build(self) -> None:
         compile_scss("css/style.scss", load_path="css/style")
         copy_file("css/fonts.css")
+        copy_file(".htaccess")
         for dir in ["downloads", "fonts", "img", "pdf"]:
             copy_directory(dir)
         content = compile_content(CONTENT_DIR)
