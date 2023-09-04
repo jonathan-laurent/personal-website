@@ -5,6 +5,7 @@
     - event: Google N2Formal Reading Group, Invited Talk
       date: 2022-08-08
 
+
 - title: Building on AlphaZero with Julia
   duration: 30 minutes
   slides: /pdf/slides/juliacon-2021.key
