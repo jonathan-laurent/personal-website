@@ -1,5 +1,4 @@
 import os
-import re
 import shutil
 import subprocess
 from os.path import join
@@ -7,6 +6,8 @@ from os.path import join
 import jinja2
 import markdown
 import yaml
+
+import generator.markdown_utils as md
 
 
 SOURCE_DIR = "website"
@@ -59,25 +60,12 @@ def render_template(template_name: str, **kwargs) -> str:
     return TEMPLATES.get_template(template_name).render(**kwargs)
 
 
-def no_p_markdown(non_p_string) -> str:
-    """Strip enclosing paragraph marks, <p> ... </p>,
-    which markdown() forces, and which interfere with some jinja2 layout
-    """
-    # https://stackoverflow.com/questions/15555870/suppress-python-markdown-wrapping-text-in-p-p
-    return re.sub(
-        "(^<P>|</P>$)",
-        "",
-        markdown.markdown(non_p_string),
-        flags=re.IGNORECASE,
-    )
-
-
 def render_page(path: str, content: dict[str, object]) -> None:
     txt = render_template(
         path,
-        markdown=markdown.markdown,
-        inline_markdown=no_p_markdown,
-        **content
+        markdown=md.markdown_extended,
+        inline_markdown=md.no_p_markdown,
+        **content,
     )
     with open(join(GENERATED_DIR, path), "w") as f:
         f.write(txt)
