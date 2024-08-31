@@ -1,3 +1,7 @@
+- when: March 2024
+  what: >
+    Our paper ["CESAR: Control Envelope Synthesis via Angelic Refinements"](https://arxiv.org/pdf/2311.02833) was accepted at TACAS.
+
 # - when: July 2023
 #   what: >
 #     Our work on _"LLMath: open-source, large-scale data and language models for
