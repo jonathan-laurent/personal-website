@@ -1,5 +1,9 @@
 - when: February 2025
   what: >
+    My [preprint](https://arxiv.org/pdf/2502.05310) on building a modular foundation for LLM-enabled software is available on ArXiv.
+
+- when: February 2025
+  what: >
     Our paper ["Adaptive Shielding via Parametric Safety Proofs"](https://arxiv.org/pdf/2502.18879) was accepted at OOPSLA.
 - when: March 2024
   what: >
