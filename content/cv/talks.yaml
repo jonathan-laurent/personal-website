@@ -1,3 +1,9 @@
+- title: "Oracular Programming: A Modular Foundation For LLM-Enabled Software"
+  duration: 60 minutes
+  locations:
+    - event: Formath Seminar, IRIF, Invited Talk
+      date: 2025-02-10
+
 - title: Learning to Find Proofs and Theorems by Learning to Refine Search Strategies
   duration: 45 minutes
   slides: /pdf/slides/n2f-2022.key
