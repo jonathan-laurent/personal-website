@@ -4,7 +4,6 @@
 
 ```sh
 brew install sass/sass/sass  # on MacOS
-poetry env use 3.10
 poetry install
 ```
 

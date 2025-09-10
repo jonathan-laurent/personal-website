@@ -1,3 +1,33 @@
+- title: "Can Large Language Models Autoformalize Kinematics?"
+  authors: Aditi Kabra, Jonathan Laurent, Sagar Bharadwaj, Ruben Martins, Stefan Mitsch, André Platzer
+  kind: conference
+  venue: FMCAD 2025
+  file: /pdf/papers/fmcad2025.pdf
+  abstract: |
+    Autonomous cyber-physical systems like robots and
+    self-driving cars could greatly benefit from using formal methods
+    to reason reliably about their control decisions. However, before a
+    problem can be solved it needs to be stated. This requires writing
+    a formal physics model of the cyber-physical system, which is a
+    complex task that traditionally requires human expertise and
+    becomes a bottleneck.
+    
+    This paper experimentally studies whether Large Language
+    Models (LLMs) can automate the formalization process. A 20
+    problem benchmark suite is designed drawing from undergrad-
+    uate level physics kinematics problems. In each problem, the
+    LLM is provided with a natural language description of the
+    objects’ motion and must produce a model in differential game
+    logic (dGL). The model is (1) syntax checked and iteratively
+    refined based on parser feedback, and (2) semantically evaluated
+    by checking whether symbolically executing the dGL formula
+    recovers the solution to the original physics problem. A success
+    rate of 70% (best over 5 samples) is achieved. We analyze
+    failing cases, identifying directions for future improvement. This
+    provides a first quantitative baseline for LLM-based autofor-
+    malization from natural language to a hybrid games logic with
+    continuous dynamics.
+
 - title: "Adaptive Shielding via Parametric Safety Proofs"
   authors: Yao Feng, Jun Zhu, André Platzer, Jonathan Laurent
   kind: conference
