@@ -1,14 +1,8 @@
 - title: PhD in Computer Science at Carnegie Mellon University
-  when: Fall 2016 -- Present
+  when: 2017 -- Present
   description: >
-    I am currently a PhD student in Computer Science at [Carnegie Mellon
-    University](https://www.csd.cs.cmu.edu/)). I have been developing techniques to
-    uncover the causal structure of simulation trajectories generated from rule-based
-    models of complex biochemical systems, in collaboration with the team of [Walter
-    Fontana](https://fontana.hms.harvard.edu/) at Harvard Medical School. From 2016 to
-    2018, I was advised by [Jean Yang](https://www.cs.cmu.edu/~jyang2/). I have been
-    advised by Professor [André Platzer](http://symbolaris.com/) since.
-
+    I am currently a PhD researcher in Computer Science at [Carnegie Mellon
+    University](https://www.csd.cs.cmu.edu/). Until the end of 2018, I worked with Professor [Jean Yang](https://www.cs.cmu.edu/~jyang2/) on causal analysis of complex biochemical systems, in collaboration with the team of [Walter Fontana](https://fontana.hms.harvard.edu/) at Harvard Medical School. I then joined Professor [André Platzer](http://symbolaris.com/)'s lab, where I have been working at the intersection of language design, maching learning and theorem proving.
 
 - title: Research Internship at IRIF
   when: March -- August 2016
