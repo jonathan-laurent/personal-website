@@ -1,4 +1,4 @@
-- when: Deptember 2025
+- when: September 2025
   what: >
     I released [Delphyne](https://github.com/jonathan-laurent/delphyne), a framework for building reliable and modular LLM applications by seamlessly integrating traditional programming and prompting.
 
