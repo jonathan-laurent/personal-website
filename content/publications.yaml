@@ -8,8 +8,9 @@
 
 - title: "Hybrid Game Control Envelope Synthesis"
   authors: Aditi Kabra, Jonathan Laurent, Stefan Mitsch, André Platzer
-  kind: preprint
-  venue: ArXiv 2025
+  kind: conference
+  venue: OOPSLA 2026
+  infos: (accepted with minor revisions)
   file: https://arxiv.org/pdf/2508.05997
   abstract: |
     Control problems for embedded systems like cars and trains can be modeled by two-player hybrid games. Control envelopes, which are families of safe control solutions, correspond to nondeterministic winning policies of hybrid games, where each deterministic specialization of the policy is a control solution. This paper synthesizes nondeterministic winning policies for hybrid games that are as permissive as possible. It introduces subvalue maps, a compositional representation of such policies that enables verification and synthesis along the structure of the game. An inductive logical characterization in differential game logic (dGL) checks whether a subvalue map induces a sound control envelope which always induces a winning play. A policy is said to win if it always achieves the desirable outcome when the player follows it, no matter what actions the opponent plays. The maximal subvalue map, which allows the most action options while still winning, is shown to exist and satisfy a logical characterization. A family of algorithms for nondeterministic policy synthesis can be obtained from the inductive subvalue map soundness characterization. An implementation of these findings is evaluated on examples that use the expressivity of dGL to model a range of diverse control challenges.
