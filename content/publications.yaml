@@ -2,15 +2,23 @@
   authors: "Jonathan Laurent, André Platzer"
   kind: preprint
   file: https://arxiv.org/pdf/2502.05310
-  venue: ArXiv 2025
+  venue: ArXiv 2026
   abstract: |
     Large Language Models have proven surprisingly effective at solving a wide range of tasks from just a handful of examples. However, their lack of reliability and modularity limits their capacity to tackle large problems that require many steps of reasoning. In response, researchers have proposed advanced pipelines that leverage domain-specific knowledge to chain smaller prompts, provide intermediate feedback and improve performance through search. However, the current complexity of writing, tuning, maintaining and improving such pipelines has limited their sophistication. We propose oracular programming, a foundational paradigm for building LLM-enabled applications that lets domain experts express high-level problem-solving strategies as programs with unresolved choice points. These choice points are resolved at runtime by LLMs, which generalize from user-provided examples of correct and incorrect decisions. An oracular program is composed of three orthogonal components: a strategy that consists in a nondeterministic program with choice points that can be reified into a search tree, a policy that specifies how to navigate this tree with the help of LLM oracles, and a set of demonstrations that describe successful and unsuccessful search tree navigation scenarios across diverse problem instances. Each component is expressed in a dedicated programming language and can be independently improved or substituted. We address the key programming language design challenges of modularly composing oracular programs and enforcing consistency between their components as they evolve.
+
+- title: LLM-Powered Automatic Theorem Proving and Synthesis for Hybrid Systems and Games
+  authors: Aditi Kabra, Jonathan Laurent, Ruben Martins, Stefan Mitsch, André Platzer
+  kind: preprint
+  file: https://arxiv.org/pdf/2603.00737
+  venue: ArXiv 2026
+  abstract: |
+    Hybrid games model cyber-physical systems (CPS), like cars, trains, and airplanes, where discrete control decisions interact with continuous physical dynamics. We use Large Language Models (LLMs) to scale formal verification and synthesis for hybrid systems and games for a high-level hybrid games symbolic logic, differential game logic (dGL). This combination of a logic with the right expressivity and automation of the interactive theorem proving process using LLMs brings within reach a challenging class of CPS verification/synthesis problems, that were previously well out of range of automatic theorem proving. We demonstrate it on five challenging case studies, all beyond the reach of existing automatic techniques. Verification succeeds for all five, and the synthesis of control solutions succeeds for four of the five.
 
 - title: "Hybrid Game Control Envelope Synthesis"
   authors: Aditi Kabra, Jonathan Laurent, Stefan Mitsch, André Platzer
   kind: conference
   venue: OOPSLA 2026
-  infos: (accepted with minor revisions)
+  # infos: (accepted with minor revisions)
   file: https://arxiv.org/pdf/2508.05997
   abstract: |
     Control problems for embedded systems like cars and trains can be modeled by two-player hybrid games. Control envelopes, which are families of safe control solutions, correspond to nondeterministic winning policies of hybrid games, where each deterministic specialization of the policy is a control solution. This paper synthesizes nondeterministic winning policies for hybrid games that are as permissive as possible. It introduces subvalue maps, a compositional representation of such policies that enables verification and synthesis along the structure of the game. An inductive logical characterization in differential game logic (dGL) checks whether a subvalue map induces a sound control envelope which always induces a winning play. A policy is said to win if it always achieves the desirable outcome when the player follows it, no matter what actions the opponent plays. The maximal subvalue map, which allows the most action options while still winning, is shown to exist and satisfy a logical characterization. A family of algorithms for nondeterministic policy synthesis can be obtained from the inductive subvalue map soundness characterization. An implementation of these findings is evaluated on examples that use the expressivity of dGL to model a range of diverse control challenges.
@@ -30,7 +38,7 @@
   authors: Yao Feng, Jun Zhu, André Platzer, Jonathan Laurent
   kind: conference
   venue: OOPSLA 2025
-  file: /pdf/papers/oopsla25.pdf
+  file: https://arxiv.org/pdf/2502.18879  #/pdf/papers/oopsla25.pdf
   abstract: |
     A major challenge to deploying cyber-physical systems with learning-enabled controllers is to ensure their safety, especially in the face of changing environments that necessitate runtime knowledge acquisition. Model-checking and automated reasoning have been successfully used for shielding, i.e., to monitor untrusted controllers and override potentially unsafe decisions, but only at the cost of hard tradeoffs in terms of expressivity, safety, adaptivity, precision and runtime efficiency. We propose a programming-language framework that allows experts to statically specify _adaptive shields_ for learning-enabled agents, which enforce a safe control envelope that gets more permissive as knowledge is gathered at runtime. A shield specification provides a safety model that is parametric in the current agent's knowledge. In addition, a nondeterministic inference strategy can be specified using a dedicated domain-specific language, enforcing that such knowledge parameters are inferred at runtime in a statistically-sound way. By leveraging language design and theorem proving, our proposed framework empowers experts to design adaptive shields with an unprecedented level of modeling flexibility, while providing rigorous, end-to-end probabilistic safety guarantees.
 
