@@ -1,7 +1,7 @@
 - institution: Carnegie Mellon University
   location: Pittsburgh
   subtitle: PhD in Computer Science.
-  when: 2017 -- Present
+  when: 2017 -- 2026
   description: ""
   details:
     - name: Coursework
@@ -71,7 +71,7 @@
         - Measure Theory (mathematics department)
 
 
-- institution: Lycée Louis-Le-Grand
+- institution: Lycée Louis-le-Grand
   subtitle: Classes Préparatoires aux Grandes Écoles (MPSI-MP*)
   location: Paris
   when: 2011 -- 2013
